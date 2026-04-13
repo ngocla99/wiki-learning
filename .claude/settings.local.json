@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"d:/Nemo/learning/wiki-learning/wiki/react/\"*.md)"
+    ]
+  }
+}

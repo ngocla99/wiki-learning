@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "karpathy-llm-wiki": {
+      "source": "Astro-Han/karpathy-llm-wiki",
+      "sourceType": "github",
+      "computedHash": "aee96218b23967dacc6118e82f3443d4b697113aa9c586a25e8d363600c66af3"
+    }
+  }
+}
