@@ -1,5 +1,13 @@
 # Wiki Log
 
+## [2026-04-13] ingest | Raw source update re-ingest
+
+- Source: Web Performance Fundamentals (Nadia Makarevich, 2025) -- updated raw extraction (~35KB new content)
+- Updated: Bundle Size Optimization (ESM vs CJS tree shaking, transitive deps, HTTP/1 vs HTTP/2, TTI+SSR gap)
+- Updated: Lazy Loading and Suspense (framework evaluation checklist, TanStack Start, vendor chunk trade-offs)
+- Updated: Interaction Performance (dev vs prod mode clarification, yield caveat)
+- Updated: Memoization in React (progressive search field optimization case study)
+
 ## [2026-04-13] rewrite | Full React wiki expansion
 
 - Rewrote all 18 React articles from ~60-120 lines each to 200-640 lines each

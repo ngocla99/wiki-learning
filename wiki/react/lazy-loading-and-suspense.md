@@ -244,11 +244,13 @@ const SidebarLazy = lazy(async () => {
 | Baseline (non-split, first visit) | 915 ms |
 | Manual chunks via config (first visit) | 992 ms |
 | Lazy-loading, LCP on critical path (first visit) | 695 ms |
+| Framework (TanStack), LCP on critical path (first visit) | 726 ms |
 | Baseline (repeated visit, code change) | 640 ms |
 | Manual chunks (repeated visit, code change) | 620 ms |
 | Lazy-loading, LCP on critical path (repeated visit) | 545 ms |
+| Framework (TanStack), LCP on critical path (repeated visit) | 628 ms |
 
-A 15-25% improvement in LCP numbers.
+A 15-25% improvement in LCP numbers for manual lazy-loading. The framework adds slight overhead for first-time visitors (726 ms vs 695 ms) and loses more on repeated visits (628 ms vs 545 ms) due to its default chunking strategy (see [Framework Chunking Strategy](#framework-chunking-strategy) below).
 
 ## Preloading Lazy Chunks Manually
 
@@ -292,6 +294,13 @@ This is still rudimentary. A proper implementation would need to:
 - Support hover-based preloading for even better perceived performance
 - Handle chunks that contain shared components like the Sidebar
 
+For larger projects with dozens of links on a page, preloading all of them simultaneously is not only unnecessary but can clog the network and delay the loading of critical resources. More targeted strategies provide better results:
+
+- **Viewport-based preloading**: start preloading when a link scrolls into view. Good for pages where the user is likely to click any visible link.
+- **Hover/intent-based preloading**: wait until the user signals intent by mousing over a link. Most conservative network usage, works well when there are many links but users typically click only one.
+
+For small projects, preloading all links on mount is acceptable. For anything beyond that, viewport or hover-based preloading avoids unnecessary network contention.
+
 This is exactly what frameworks provide out of the box.
 
 ## Bundles, Loading, and Frameworks
@@ -304,13 +313,65 @@ Modern frameworks handle code splitting, lazy loading, and preloading automatica
 
 **Next.js** -- SSR by default, automatic page-level code splitting, integrated preloading.
 
-Key things to evaluate in any framework:
+### Framework Evaluation Checklist
 
-1. How to initialize a project
-2. SSR vs CSR by default
-3. How routing works (file-based, code-based, or hybrid)
-4. How navigation/Link components work and their preloading strategy
-5. How the default chunking strategy handles vendor code vs app code
+The specific framework does not matter if you know the fundamentals. Learn the underlying concepts first, and you can switch between frameworks quickly, understand their strengths and weaknesses, take advantage of their features, compensate for their flaws, and adjust their defaults to your needs.
+
+When evaluating any framework's bundling and loading behavior, ask these five questions:
+
+1. **How to initialize a project?** Typically there will be a CLI command or a starter repository to clone.
+2. **SSR vs CSR by default?** This fundamentally changes the performance profile and the role of lazy loading (SSR makes LCP dependent on CSS, not JS).
+3. **How does routing work?** File-based routing (each page is its own file), code-based routing (routes declared in code), or a hybrid of both. File-based routing makes the project structure immediately clear.
+4. **How do Link components work and what is their preloading strategy?** Every framework provides a `Link` component and hooks like `useNavigate`, `useLocation`, `useRouter`. The preloading strategy attached to `Link` determines when route chunks are fetched.
+5. **What is the default chunking strategy for vendor vs app code?** Whether the framework separates third-party libraries from application code into different chunks directly affects repeated-visitor caching performance.
+
+Everything else in the framework's documentation can be learned when needed. These five questions give you enough to migrate a project and understand the performance implications.
+
+### Framework Chunking Strategy
+
+Frameworks perform automatic code splitting per route, which is convenient -- you get route-level chunks without manual `lazy` wrappers or bundler configuration. However, frameworks typically do not create separate vendor chunks by default. Third-party libraries end up in the same bundles as application code.
+
+This means that when application code changes (even on a different page), the chunks containing vendor code also get new hashes, forcing returning visitors to re-download libraries that have not actually changed. In the study project, this caused repeated-visitor LCP of 628 ms with TanStack vs 545 ms with manual chunking -- an 83 ms penalty.
+
+Since TanStack (and many other frameworks) uses Vite underneath, this is fixable with manual Vite chunk configuration:
+
+```js
+// vite.config.ts -- override the framework's default chunking
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+          return null;
+        },
+      },
+    },
+  },
+});
+```
+
+Whether this optimization is worth the added configuration depends on the project. For apps with stable dependencies and frequent code changes, separating vendor chunks measurably helps returning visitors.
+
+### Framework Preloading Strategy
+
+With manual implementations, preloading requires creating and maintaining a map of paths to their corresponding dynamic imports, modifying the `Link` component, and importing chunks manually. Frameworks handle all of this automatically.
+
+TanStack Start uses the "intent" preloading strategy by default: route chunks are not loaded on initial page render, but when the user hovers over a link leading to that route, the corresponding chunks appear in the network panel. This provides a good balance between network efficiency and navigation speed.
+
+TanStack also supports two other strategies via a single prop change on `Link` or a global setting in config:
+
+- **`"viewport"`** -- preload when the link becomes visible on screen. Good for pages where any visible link is a likely navigation target.
+- **`"render"`** -- preload when the `Link` component mounts (equivalent to the manual `useEffect`-based approach). Most aggressive, preloads all linked routes immediately after render.
+
+```jsx
+// Changing the preloading strategy on a single Link
+<Link to="/settings" preload="viewport">Settings</Link>
+
+// Or setting it globally in the router configuration
+```
 
 The study project on TanStack showed slightly worse repeated-visitor LCP (628 ms vs 545 ms manual) because the framework does not separate vendor chunks by default. This is fixable with manual Vite configuration if needed.
 

@@ -98,6 +98,8 @@ For initial load profiling, production builds are essential (tree shaking, minif
 
 The workflow: identify the slow interaction in production, then switch to dev mode to diagnose the cause.
 
+This is the exact opposite of initial load debugging, where production builds are essential and dev mode is avoided. For initial load, React code can be treated as a generic blob where only total size matters -- production builds with tree shaking and minification provide all the information needed. For interactions, you need to understand *what specific components* are executing and *why* -- and the production profiler shows nothing beyond minified variable names that are impossible to trace back to source code. A generic performance profile of a production build gives you little more than "React does something" with no way to determine what.
+
 ### CPU Throttling
 
 Always set CPU throttling when profiling interactions. High-end developer laptops mask performance issues that real users experience on mobile devices. Recommended settings:
@@ -224,6 +226,8 @@ Yielding becomes useful when you have significant **non-React computation**, esp
 - Iterating over DOM nodes manually
 - Custom browser-based games or animation frameworks
 - Heavy data processing pipelines that are not delegated to React's rendering
+
+In practice, the source author reports never having explicitly used `scheduler.yield()` in any standard React application. The technique exists for situations where *you* control the loop -- but in React, you rarely do. Your interaction handler calls `setState`, and React takes over from there. There is simply nothing in the typical React interaction handler to yield *between*.
 
 For the vast majority of React interaction performance issues, the solution is not yielding but **reducing unnecessary re-renders**.
 

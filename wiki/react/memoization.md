@@ -447,6 +447,18 @@ export default function App() {
 
 Only components that call `useSearch()` re-render when the search changes. Everything passed as `children` is unaffected.
 
+### Progressive Optimization: The Search Field Case Study
+
+The three composition patterns above can be understood through a single problem: a search field whose state lives in the root `App` component, causing the entire page to re-render on every keystroke (~650ms INP on a throttled CPU). Applying each pattern to the **same** problem demonstrates their relative effectiveness:
+
+1. **Moving state down**: The search state and results display are moved into the `SearchBar` component closest to where they are used. Re-renders are confined to just the search input and results. **Result: ~500ms to ~50ms -- a 10x improvement.** This is the simplest change and produces the most dramatic gain.
+
+2. **Children as props**: When state cannot be fully moved down (e.g., the search results drawer is tied to App-level logic), the expensive `DashboardPage` is passed as a `content` prop (or `children`). It is created in `App` where no state changes, so it is unaffected by re-renders in the search wrapper. **Result: still green, slightly slower than pattern 1 because the layout and sidebar still re-render, but negligible even at 20x CPU throttling.**
+
+3. **Context with `useSearch` hook**: A `DataProvider` wraps the app, and only components that call `useSearch()` re-render when search state changes. The layout, sidebar, and dashboard are all passed as `children` and remain completely unaffected. **Result: eliminates re-renders for all uninvolved components, including the sidebar that pattern 2 still re-rendered. Bonus: cleaner code since props drilling is eliminated.**
+
+The key insight is that these patterns are not interchangeable alternatives. They form a progression from simplest to most flexible. Start with moving state down -- it alone can solve most problems with the least code change. Escalate to children-as-props when the state cannot be moved far enough down the tree, and to Context when you need to eliminate re-renders across all intermediate components as well.
+
 ### 4. Memoization (Last Resort)
 
 When none of the above is feasible (often due to legacy code or complex prop dependencies), use `React.memo` with memoized props:

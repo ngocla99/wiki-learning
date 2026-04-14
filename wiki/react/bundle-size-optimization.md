@@ -38,11 +38,11 @@ That is a 16x increase for the evaluate step alone. The execution step (actually
 
 ### Bundle Size and SSR
 
-With SSR, the page becomes visible quickly (the HTML arrives fast), but it is not interactive until JavaScript downloads, evaluates, and hydrates. A 5 MB bundle on 4G creates a roughly 7-second gap where the page looks functional but nothing works -- buttons do not respond, toggles do nothing, and only native links and CSS animations function.
+With SSR, the page becomes visible quickly (the HTML arrives fast), but it is not interactive until JavaScript downloads, evaluates, and hydrates. A 5 MB bundle on 4G creates a roughly 7-second gap where the page looks functional but nothing works -- buttons do not respond, toggles do nothing, and only native links and CSS animations function. During this gap, the page is just pure pre-rendered HTML with no JavaScript attached. The page seems very fast, but in reality it is broken for several seconds.
 
-This gap between visibility and interactivity is measured by Time To Interactive (TTI). It was removed from Lighthouse and Core Web Vitals, but remains a useful metric for analyzing SSR performance.
+This gap between visibility and interactivity is measured by **Time To Interactive (TTI)**. It was removed from Lighthouse and Core Web Vitals, but remains a useful metric for analyzing SSR performance. The TTI metric specifically captures what the user experiences: the page appears loaded, they try to click a button or toggle a setting, and nothing happens. On slower connections (e.g., 3G), the gap can extend to tens of seconds.
 
-The combined effect of slow network + slow CPU makes large bundle sizes particularly problematic for SSR. Users see the page, try to interact, and conclude the site is broken.
+The combined effect of slow network + slow CPU makes large bundle sizes particularly problematic for SSR. Users see the page, try to interact, and conclude the site is broken. This is arguably worse than a slow CSR load where the user at least sees a loading indicator -- with SSR and large bundles, there is no visual indication that the page is not yet ready.
 
 ## Reducing Bundle Size with Code Splitting
 
@@ -108,13 +108,44 @@ This allows the browser to fetch and compile all JavaScript in parallel, which i
 
 On HTTP/1, Chrome limits concurrent connections to **six per domain**. If you create more than six chunks (e.g., eight chunks total), the 7th and 8th downloads are queued. Worse, the CSS file can also be delayed -- so if the page was SSRed, splitting JavaScript into too many chunks would delay the initial paint and make performance worse.
 
+For example, a granular chunking strategy like this produces eight chunks:
+
+```js
+manualChunks: (id) => {
+  if (id.includes('node_modules')) {
+    return 'vendor';
+  }
+  if (id.includes('frontend/components')) {
+    return 'components';
+  }
+  if (id.includes('pages/inbox')) {
+    return 'inbox';
+  }
+  if (id.includes('pages/dashboard')) {
+    return 'dashboard';
+  }
+  if (id.includes('pages/login')) {
+    return 'login';
+  }
+  if (id.includes('pages/settings')) {
+    return 'settings';
+  }
+  if (id.includes('frontend/patterns')) {
+    return 'patterns';
+  }
+  return null;
+};
+```
+
+On HTTP/1, only six of these chunks download initially. The remaining chunks (and critically, the CSS file) are queued until one of the first six completes. If the page was server-side rendered, this delay to the CSS file would delay the initial paint and make performance numbers worse than having fewer chunks.
+
 **HTTP/2 and HTTP/3 handle many more requests in parallel** through multiplexing. As of 2022-2023, roughly 90% of CDN traffic uses HTTP/2+. So production websites behind a CDN are typically fine.
 
-However, **local development servers typically use HTTP/1** (Vite's preview server, Express, and even Next.js dev mode). This creates a dangerous trap: if you experiment with chunking strategies locally, you may see zero gains (or regressions) that do not reflect production behavior. Or the opposite -- local results may look bad while production would show improvement.
+However, **local development servers typically use HTTP/1** (Vite's preview server, Express, and even Next.js dev mode). HTTP/2 needs to be implemented separately for local environments. This creates a dangerous trap: if you experiment with chunking strategies locally, you may see zero gains (or regressions) that do not reflect production behavior. Or the opposite -- local results may look bad while production would show improvement. Always be aware of which protocol your measurement environment is using before drawing conclusions about chunking strategies.
 
 ### Chunk Size and Compression
 
-There is a second downside to splitting into too many small chunks: **compression ratio decreases** as chunks become smaller. The overall transferred size of compressed JavaScript may increase, even if uncompressed size stays the same. This especially matters for users on limited bandwidth and mobile devices.
+There is a second downside to splitting into too many small chunks: **compression ratio decreases** as chunks become smaller. Compression algorithms like gzip and brotli work by finding repeated patterns in the data -- larger files provide more opportunities for pattern matching and therefore compress more efficiently. When you split a large bundle into many small chunks, each chunk compresses less effectively on its own. The overall network transfer of compressed JavaScript may therefore **increase**, even if the total uncompressed size stays the same or decreases. This trade-off especially matters for users on limited bandwidth and mobile devices, where every additional kilobyte of transfer has a measurable impact on load time.
 
 ## Analyzing Bundle Size
 
@@ -143,15 +174,15 @@ After building, open `dist/client/stats.html` in a browser. The visualization is
 
 ### The Investigation Process
 
-For every suspicious package discovered in the visualization:
+After generating the visualization, the work becomes a structured investigation. Apply the following process for **every** suspicious package you discover -- it is a repeatable methodology, not a one-time exercise:
 
-**Step 1: Identify** -- Find unreasonably large blocks (usually in `node_modules`). The npm naming convention helps: packages are either one word with dashes, or `@namespace/package-name`.
+**Step 1: Identify a package to eliminate.** Find unreasonably large blocks (usually in `node_modules`). The npm naming convention helps: packages are either one word with dashes, or `@namespace/package-name`. Everything directly under `node_modules` in the visualization is either a package or a namespace (starting with `@`) containing multiple packages.
 
-**Step 2: Understand** -- Google the package to learn what it does.
+**Step 2: Understand the package.** Google the package to learn what it does. Understanding what it provides is essential before deciding whether it can be removed or replaced.
 
-**Step 3: Trace usage** -- Search your codebase for direct imports. If none, it is a transitive dependency (use `npm-why` to trace).
+**Step 3: Understand its usage in the codebase.** Search your codebase for direct imports of the package name. If you find direct imports, analyze the code to understand how and why it is used -- sometimes the usage is legitimate, sometimes it is a leftover from incomplete refactoring. If no direct imports exist, it is a transitive dependency pulled in by another library (use `npm-why` to trace the chain).
 
-**Step 4: Confirm** -- Comment out the import, rebuild, and verify the bundle shrinks. Do not skip this step. In the study project, commenting out two `@mui` imports dropped the vendor from 5 MB to 811 KB.
+**Step 4: Confirm it is the problem before refactoring.** Before attempting any refactoring -- which in real-world projects could be very costly -- confirm that you have identified the problem correctly. Comment out the import, rebuild, and verify the bundle shrinks. The build will likely fail (since the usage is still in the code), but the produced bundle size will reveal whether the import was truly the source of the bloat. Do not skip this step. In the study project, commenting out two `@mui` imports dropped the vendor from 5 MB to 811 KB -- confirmation that those imports were the problem, not something else.
 
 **Step 5: Fix** -- Apply the appropriate fix (targeted imports, library replacement, or removal). Then verify the app still works.
 
@@ -173,7 +204,7 @@ Modern bundlers are getting smarter and smarter, and it becomes harder to fool t
 
 ### What Breaks Tree Shaking: `import *` with Re-export
 
-The **`*` import combined with assignment to a variable/object** defeats tree shaking:
+Even with ESM-compatible libraries where tree shaking normally works, the **`*` import combined with assignment to a variable/object** defeats tree shaking:
 
 ```js
 // This pattern prevents tree shaking!
@@ -218,9 +249,13 @@ For your own code, this may not matter much -- you probably use most of what you
 
 ## ES Modules and Non-tree-shakable Libraries
 
-Tree shaking only works reliably with **ES Modules** (ESM) -- the `import`/`export` syntax. Other module formats (CommonJS `require()`, AMD, UMD) are very difficult or impossible to tree-shake.
+Tree shaking only works reliably with **ES Modules** (ESM) -- the `import`/`export` syntax. JavaScript has several module formats -- ESM, CJS (CommonJS), AMD, UMD -- each defining how reusable code is loaded into other code. When you see `import { bla } from 'bla-bla'` or `export const bla` or `export { bla }`, that is ESM format. ESM is the modern standard for frontend code, and modern bundlers can tree-shake it reliably. Everything else (CommonJS `require()`, AMD, UMD) is very difficult or impossible to tree-shake because the bundler cannot statically analyze dynamic `require()` calls the way it can analyze static `import` declarations.
 
-You can check whether a library uses ESM:
+### Verifying Tree Shaking Failure
+
+When you suspect tree shaking is not working for a library, verify it experimentally. For example, if you use two functions from a library, remove one and rebuild. If tree shaking works, the bundle size should decrease and the chunk name should change. If nothing changes, tree shaking has failed and the entire library is being included regardless of what you import.
+
+You can check whether a library uses ESM with the `is-esm` CLI tool:
 
 ```bash
 npx is-esm lodash          # No  -- not tree-shakable
@@ -254,7 +289,9 @@ const cleanValue = val.toLowerCase().trim();
 
 ## Common Sense and Repeating Libraries
 
-In large projects with multiple teams, it is common to accumulate **duplicate libraries that solve the same problem**. The study project contained three date libraries:
+In large projects with multiple teams, it is common to accumulate **duplicate libraries that solve the same problem**. This is especially frequent with functionality that is too painful to implement from scratch and generic enough to extract into a library: dates, animations, resizing, infinite scrolling, forms, charts, and styling. Different teams (or even the same team at different points in time) independently add libraries without checking what already exists.
+
+The study project contained three date libraries:
 
 - `date-fns` -- tree-shakable, modern
 - `moment` -- not tree-shakable, no targeted imports, large
@@ -262,11 +299,16 @@ In large projects with multiple teams, it is common to accumulate **duplicate li
 
 Each was used in exactly one place for the same purpose: formatting a date to a human-readable string.
 
-The investigation process:
+### Identification and Consolidation Strategy
+
+The decision of which library to keep depends on how much code would need to be refactored, how much effort it takes, and how many kilobytes of bundle size you are willing to tolerate. In old projects, one library (e.g., Moment) may be used everywhere while newer alternatives are only in a few places -- making it more practical to remove the newer ones as a quick win. Or the opposite: the old library may be a leftover from a large refactoring that someone forgot to clean up.
+
+When you can choose freely, the investigation process is:
 
 1. Check which libraries are tree-shakable (`moment` is not, so it is the worst offender).
-2. Compare compressed sizes in the bundle visualization.
-3. Pick one and refactor. Removing `moment` and `luxon` in favor of `date-fns` reduced the vendor by 20% (804 KB to 672 KB).
+2. Compare compressed sizes in the bundle visualization. Even among tree-shakable libraries, some are naturally larger.
+3. Consider the API quality, maintenance status, and community support.
+4. Pick one and refactor. Removing `moment` and `luxon` in favor of `date-fns` reduced the vendor by 20% (804 KB to 672 KB).
 
 Other common areas for duplication: animation libraries, CSS-in-JS solutions (e.g., having both Tailwind and Emotion), form validation, charting, infinite scrolling, and floating/positioning libraries.
 
@@ -274,9 +316,11 @@ Also watch for libraries that exist due to incomplete refactoring. The study pro
 
 ## Transitive Dependencies
 
-A library that does not appear in your direct code may still be in the bundle because another dependency requires it. These are called transitive dependencies.
+A library that does not appear in your direct code may still be in the bundle because another dependency requires it. These are called transitive dependencies. They often show up with "foundation" level libraries -- positioning utilities, CSS-in-JS runtimes, and general-purpose utilities like lodash -- that other libraries build on top of.
 
-In the study project, removing direct usage of `@emotion/styled` did not shrink the bundle because `@mui/material` depends on it transitively. Use `npm-why` to trace the chain:
+The `npm-why` CLI tool traces the full dependency chain to reveal where a package originates. This is essential when removing a direct usage of a library does not reduce the bundle, because a transitive consumer is still pulling it in.
+
+In the study project, removing direct usage of `@emotion/styled` did not shrink the bundle because `@mui/material` depends on it transitively. Running `npm-why` revealed the full chain:
 
 ```bash
 npx npm-why @emotion/styled
