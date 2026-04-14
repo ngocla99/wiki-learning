@@ -11,10 +11,14 @@
             "id": "dee848feeda0f28c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "wiki/react/state-management.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "state-management"
             }
           }
         ]
@@ -181,6 +185,8 @@
   },
   "active": "dee848feeda0f28c",
   "lastOpenFiles": [
+    "wiki/react/state-management.md",
+    "raw/react/2025-09-25-react-state-management-2025.md",
     "wiki/react/refs-and-imperative-api.md",
     "wiki/react/closures-in-react.md",
     "wiki/react/reconciliation-and-diffing.md",

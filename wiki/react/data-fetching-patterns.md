@@ -568,6 +568,7 @@ Server Components with streaming outperform both alternatives, in some cases by 
 
 ## See Also
 
+- [React State Management](state-management.md) — TanStack Query as the recommended tool for remote state (~80% of state management)
 - [Rendering Strategies](rendering-strategies.md)
 - [React Server Components](react-server-components.md)
 - [Error Handling in React](error-handling.md)

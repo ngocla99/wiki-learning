@@ -1,5 +1,12 @@
 # Wiki Log
 
+## [2026-04-14] ingest | React State Management
+
+- Source: https://www.developerway.com/posts/react-state-management-2025 (Nadia Makarevich, 2025-09-25)
+- New: React State Management
+- Updated: React Context and Performance (added cross-reference)
+- Updated: Data Fetching Patterns (added cross-reference)
+
 ## [2026-04-13] ingest | Raw source update re-ingest
 
 - Source: Web Performance Fundamentals (Nadia Makarevich, 2025) -- updated raw extraction (~35KB new content)

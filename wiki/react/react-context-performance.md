@@ -328,6 +328,7 @@ Context works well for smaller apps with a few isolated pieces of shared state. 
 
 ## See Also
 
+- [React State Management](state-management.md) — when Context is sufficient vs. when to reach for Zustand or Redux
 - [React Re-renders](react-re-renders.md)
 - [Memoization in React](memoization.md)
 - [Component Composition Patterns](component-composition-patterns.md)
