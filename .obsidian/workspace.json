@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/react/closures-in-react.md",
+                "file": "wiki/react/use-layout-effect.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "closures-in-react"
+              "title": "use-layout-effect"
             }
           }
         ]
@@ -185,25 +185,31 @@
   },
   "active": "dee848feeda0f28c",
   "lastOpenFiles": [
-    "wiki/react/bundle-size-optimization.md",
+    "wiki/react/interaction-performance.md",
+    "wiki/react/debouncing-throttling.md",
+    "wiki/index.md.tmp.30032.1776219436348",
+    "wiki/react/closures-in-react.md.tmp.30032.1776219425544",
+    "wiki/react/react-hooks-interview.md.tmp.30032.1776219424116",
+    "wiki/react/react-hooks-interview.md.tmp.30032.1776219422795",
+    "wiki/react/interaction-performance.md.tmp.30032.1776219421754",
+    "wiki/react/data-fetching-patterns.md.tmp.30032.1776219399900",
+    "wiki/react/data-fetching-patterns.md.tmp.30032.1776219390838",
+    "wiki/react/data-fetching-patterns.md.tmp.30032.1776219381533",
+    "wiki/react/data-fetching-patterns.md.tmp.30032.1776219375288",
+    "wiki/react/debouncing-throttling.md.tmp.30032.1776219344671",
+    "wiki/react/race-conditions.md",
+    "wiki/react/use-layout-effect.md",
+    "wiki/index.md",
+    "wiki/react/web-performance-metrics.md",
     "wiki/react/closures-in-react.md",
+    "wiki/react/bundle-size-optimization.md",
     "raw/react/2026-04-14-react-interview-questions-fundamentals.md",
     "wiki/react/state-management.md",
     "wiki/react/react-hooks-interview.md",
     "wiki/react/react-architecture-interview.md",
-    "wiki/log.md.tmp.29364.1776140967502",
-    "wiki/log.md.tmp.29364.1776140963980",
-    "wiki/log.md.tmp.29364.1776140956161",
-    "wiki/react/bundle-size-optimization.md.tmp.29364.1776140942163",
-    "wiki/react/lazy-loading-and-suspense.md.tmp.29364.1776140930845",
     "wiki/react/react-components-interview.md",
     "wiki/react/error-handling.md",
     "wiki/react/react-fundamentals-interview.md",
-    "wiki/log.md.tmp.29364.1776140475233",
-    "wiki/log.md.tmp.29364.1776140471391",
-    "wiki/log.md.tmp.29364.1776140465462",
-    "wiki/log.md.tmp.29364.1776140458517",
-    "wiki/index.md.tmp.29364.1776140453348",
     "raw/react/2026-04-14-react-interview-questions-extended.md",
     "wiki/react/memoization.md",
     "raw/react/2025-09-25-react-state-management-2025.md",
@@ -215,11 +221,6 @@
     "wiki/react/data-fetching-patterns.md",
     "wiki/react/lazy-loading-and-suspense.md",
     "wiki/react/rendering-strategies.md",
-    "wiki/react/interaction-performance.md",
-    "wiki/react/web-performance-metrics.md",
-    "Untitled.canvas",
-    "wiki/react/component-composition-patterns.md",
-    "wiki/react/react-server-components.md",
-    "wiki/react/react-re-renders.md"
+    "Untitled.canvas"
   ]
 }

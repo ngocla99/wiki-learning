@@ -523,6 +523,7 @@ Now we have the best of both worlds:
 
 - [Refs and Imperative API](refs-and-imperative-api.md)
 - [Debouncing and Throttling](debouncing-throttling.md)
+- [useLayoutEffect](use-layout-effect.md)
 - [Memoization in React](memoization.md)
 - [Component Composition Patterns](component-composition-patterns.md)
 - [React Re-renders](react-re-renders.md)

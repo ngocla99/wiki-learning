@@ -5,7 +5,7 @@
 
 ## Overview
 
-Data fetching in React encompasses initial data loading, on-demand fetching, handling browser limitations, avoiding request waterfalls, preventing race conditions, and choosing between client-side and server-side strategies. While a simple `fetch` in `useEffect` works for trivial cases, production apps benefit from libraries that handle caching, deduplication, error states, and cancellation. The evolution from client-side fetching to SSR to React Server Components reflects the community's ongoing effort to move data fetching closer to the data source, reduce round trips, and improve both performance and developer experience.
+Data fetching in React encompasses initial data loading, on-demand fetching, handling browser limitations, avoiding request waterfalls, and choosing between client-side and server-side strategies. While a simple `fetch` in `useEffect` works for trivial cases, production apps benefit from libraries that handle caching, deduplication, error states, and cancellation. The evolution from client-side fetching to SSR to React Server Components reflects the community's ongoing effort to move data fetching closer to the data source, reduce round trips, and improve both performance and developer experience.
 
 ## Types of Data Fetching
 
@@ -331,125 +331,6 @@ const Issue = () => (
 
 Everything else -- browser limitations, React lifecycle, the nature of waterfalls -- stays the same. Suspense does not solve waterfalls by itself.
 
-## Race Conditions
-
-Race conditions occur when multiple asynchronous operations compete to update the same state, and the order of resolution does not match the order of initiation.
-
-### The Problem
-
-```jsx
-const Page = ({ id }) => {
-  const [data, setData] = useState({});
-
-  useEffect(() => {
-    fetch(`/some-url/${id}`)
-      .then((r) => r.json())
-      .then((r) => setData(r));
-  }, [id]);
-
-  return <h2>{data.title}</h2>;
-};
-```
-
-If `id` changes rapidly (1 -> 2 -> 3), all three requests fire, but they may resolve in any order. If request 3 resolves first and request 1 resolves last, the UI shows data for id=1 even though the user navigated to id=3. The code looks completely innocent, but the app is broken.
-
-### Why It Happens
-
-Two factors combine:
-
-1. **React lifecycle**: When `id` changes, the `Page` component *re-renders* (not re-mounts). The `useEffect` fires again with the new `id`, but the previous fetch is still in-flight. Both fetches have a reference to the same `setData`.
-2. **Promise nature**: `fetch` is asynchronous. The old promise does not cancel when a new one starts. When it eventually resolves, it calls `setData` with stale data.
-
-### Fix 1: Force Re-mounting with `key`
-
-```jsx
-<Page id={page} key={page} />
-```
-
-Changing the `key` forces React to unmount the old component and mount a new one. The old component's state and pending promises are destroyed. When the old promise resolves, `setData` targets a component that no longer exists -- the data disappears into the void.
-
-**Caveat**: Not recommended as a general solution. Performance may suffer from re-mounting, and it can cause unexpected bugs with focus, state, and triggering `useEffect` down the render tree. It is more like sweeping the problem under the rug.
-
-### Fix 2: Compare Results with a Ref
-
-Use a ref to always hold the *latest* `id`, then compare before setting state:
-
-```jsx
-const Page = ({ id }) => {
-  const ref = useRef(id);
-
-  useEffect(() => {
-    ref.current = id;
-
-    fetch(`/some-data-url/${id}`)
-      .then((r) => r.json())
-      .then((r) => {
-        // Only update if this result matches the current id
-        if (ref.current === r.id) {
-          setData(r);
-        }
-      });
-  }, [id]);
-};
-```
-
-If results do not include an identifying field, compare the URL instead using `result.url === ref.current`.
-
-### Fix 3: Cleanup Flag (Closure-based)
-
-Use the `useEffect` cleanup function to mark previous closures as stale:
-
-```jsx
-useEffect(() => {
-  let isActive = true;
-
-  fetch(`/some-data-url/${id}`)
-    .then((r) => r.json())
-    .then((r) => {
-      if (isActive) {
-        setData(r);
-      }
-    });
-
-  return () => {
-    isActive = false;
-  };
-}, [id]);
-```
-
-The cleanup function runs before every re-render with changed dependencies. The `isActive` variable in the *previous* closure gets set to `false`, so only the latest fetch can update state. This works because JavaScript closures give each `useEffect` run its own scope, and the `fetch` promise inside that closure can only access *that run's* local variables.
-
-### Fix 4: AbortController
-
-Cancel the actual HTTP request when the effect cleans up:
-
-```jsx
-useEffect(() => {
-  const controller = new AbortController();
-
-  fetch(url, { signal: controller.signal })
-    .then((r) => r.json())
-    .then((r) => setData(r))
-    .catch((error) => {
-      if (error.name === 'AbortError') {
-        // Request was cancelled, do nothing
-      } else {
-        // Real error, handle it
-      }
-    });
-
-  return () => {
-    controller.abort();
-  };
-}, [url]);
-```
-
-On every re-render with changed dependencies, the in-progress request is cancelled and a new one starts. Aborting causes the promise to reject with an `AbortError`, which should be filtered out from real error handling.
-
-### async/await Does Not Change Anything
-
-`async/await` is just syntactic sugar for promises. The same race conditions occur, and the same solutions apply -- just with slightly different syntax.
-
 ## Client-Side vs Server-Side Data Fetching
 
 ### Client-Side Fetching
@@ -562,12 +443,12 @@ Server Components with streaming outperform both alternatives, in some cases by 
 - Browser connection limits (6 parallel for HTTP/1.1) mean careless prefetching can block critical requests.
 - **Waterfalls** are the primary performance killer: they appear when fetches depend on the React component lifecycle (parent must finish before child starts).
 - Solutions to waterfalls: `Promise.all`, parallel independent promises, data providers with Context, pre-fetching outside React, or injecting fetches in HTML.
-- **Race conditions** appear when state is updated from stale promises. Fix with cleanup flags, refs, `AbortController`, or forced re-mounting.
 - SSR moves fetching to the server but delays HTML delivery. Streaming with Server Components eliminates this tradeoff by sending chunks incrementally.
 - Regardless of the library, framework, or pattern, the fundamentals of orchestration, browser limits, and the React lifecycle always apply.
 
 ## See Also
 
+- [Race Conditions in React](race-conditions.md) -- cleanup flags, AbortController, Ref comparison, and forced re-mounting
 - [React State Management](state-management.md) — TanStack Query as the recommended tool for remote state (~80% of state management)
 - [Rendering Strategies](rendering-strategies.md)
 - [React Server Components](react-server-components.md)

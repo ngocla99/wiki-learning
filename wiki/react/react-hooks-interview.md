@@ -167,7 +167,7 @@ Using `useEffect` here would let the browser paint the wrong position first, the
 
 **Caution**: `useLayoutEffect` is synchronous and blocking. Heavy work here delays paint and hurts perceived performance. Prefer `useEffect` unless you observe a flicker.
 
-> See also: [Debouncing, Throttling, and useLayoutEffect](debouncing-throttling.md)
+> See also: [useLayoutEffect](use-layout-effect.md)
 
 ---
 
@@ -381,7 +381,8 @@ Hardcoded IDs break when a component renders multiple times (the same ID appears
 
 - [Memoization in React](memoization.md)
 - [Refs and Imperative API](refs-and-imperative-api.md)
-- [Debouncing, Throttling, and useLayoutEffect](debouncing-throttling.md)
+- [Debouncing and Throttling](debouncing-throttling.md)
+- [useLayoutEffect](use-layout-effect.md)
 - [Closures in React](closures-in-react.md)
 - [React Re-renders](react-re-renders.md)
 - [React Hooks — Components & State](react-components-interview.md)

@@ -361,5 +361,6 @@ This is almost exactly what `useImperativeHandle` does under the hood. Choose wh
 
 - [Closures in React](closures-in-react.md)
 - [Debouncing and Throttling](debouncing-throttling.md)
+- [useLayoutEffect](use-layout-effect.md)
 - [Memoization in React](memoization.md)
 - [React Re-renders](react-re-renders.md)

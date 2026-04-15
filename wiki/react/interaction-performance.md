@@ -444,4 +444,5 @@ The Compiler does not catch everything. Components that re-render due to path-de
 - [Rendering Strategies](rendering-strategies.md) -- CSR, SSR, SSG, and their performance tradeoffs
 - [Lazy Loading and Suspense](lazy-loading-and-suspense.md) -- code splitting to reduce initial bundle size
 - [Bundle Size Optimization](bundle-size-optimization.md) -- tree shaking, chunk analysis, and the Compiler's bundle size impact
-- [Debouncing, Throttling, and useLayoutEffect](debouncing-throttling.md) -- rate-limiting input handlers for search and other frequent interactions
+- [Debouncing and Throttling](debouncing-throttling.md) -- rate-limiting input handlers for search and other frequent interactions
+- [useLayoutEffect](use-layout-effect.md) -- flicker prevention and browser rendering pipeline
