@@ -1,8 +1,36 @@
 # Wiki Log
 
+## [2026-04-14] lint | Full wiki audit (23 articles)
+
+**Deterministic checks — all passed, 2 auto-fixes applied:**
+
+- Fixed: `lazy-loading-and-suspense.md` — removed `./` prefix from See Also links and 1 inline body link; normalized to bare filenames
+- Fixed: `bundle-size-optimization.md` — removed `./` prefix from See Also links; normalized to bare filenames; also removed inline `-- description` text to match style of all other articles
+- Index consistency: all 23 articles in index.md have matching files ✓
+- Internal links: all See Also and inline body links resolve to existing files ✓
+- Raw references: all Source/Raw fields point to existing raw files ✓
+
+**Heuristic checks — issues reported, no auto-fix:**
+
+- Orphan inbound links: the 4 new interview Q&A articles (react-fundamentals-interview.md, react-hooks-interview.md, react-components-interview.md, react-architecture-interview.md) are not linked from any existing deep-dive article; discoverable only via index.md
+- Missing sibling links: `react-fundamentals-interview.md` See Also does not reference the other 3 interview articles in the series (the other 3 cross-link to each other)
+
+## [2026-04-14] ingest | React Interview Questions (extended set)
+
+- Source: [GreatFrontEnd React Interview Questions](https://www.greatfrontend.com/questions/quiz/react-interview-questions) (GreatFrontEnd, 34 questions)
+- New: React Hooks — Interview Questions
+- New: React Components & State — Interview Questions
+- New: React Architecture & Performance — Interview Questions
+- Updated: React Fundamentals — Interview Questions (added cross-references)
+
+## [2026-04-14] ingest | React Fundamentals — Interview Questions
+
+- Source: [GreatFrontEnd React Interview Questions](https://www.greatfrontend.com/questions/quiz/react-interview-questions) (GreatFrontEnd)
+- New: React Fundamentals — Interview Questions
+
 ## [2026-04-14] ingest | React State Management
 
-- Source: https://www.developerway.com/posts/react-state-management-2025 (Nadia Makarevich, 2025-09-25)
+- Source: [React State Management in 2025](https://www.developerway.com/posts/react-state-management-2025) (Nadia Makarevich, 2025-09-25)
 - New: React State Management
 - Updated: React Context and Performance (added cross-reference)
 - Updated: Data Fetching Patterns (added cross-reference)

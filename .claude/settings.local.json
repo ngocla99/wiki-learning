@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls -la \"d:/Nemo/learning/wiki-learning/wiki/react/\"*.md)"
+      "Bash(ls -la \"d:/Nemo/learning/wiki-learning/wiki/react/\"*.md)",
+      "WebFetch(domain:www.greatfrontend.com)"
     ]
   }
 }

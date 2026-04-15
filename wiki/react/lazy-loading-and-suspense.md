@@ -9,7 +9,7 @@ Lazy loading defers the downloading of non-critical JavaScript until it is actua
 
 ## Lazy Loading and Code Splitting
 
-Lazy loading and code splitting are complementary but distinct concepts. Code splitting (covered in [Bundle Size Optimization](./bundle-size-optimization.md)) breaks a bundle into chunks. Lazy loading controls **when** those chunks are downloaded.
+Lazy loading and code splitting are complementary but distinct concepts. Code splitting (covered in [Bundle Size Optimization](bundle-size-optimization.md)) breaks a bundle into chunks. Lazy loading controls **when** those chunks are downloaded.
 
 Without lazy loading, all manual chunks are preloaded as critical resources -- they download in parallel at page load, and the browser waits for all of them. Lazy loading changes this: the chunk associated with a lazy component is only downloaded when that component first mounts.
 
@@ -441,8 +441,8 @@ The correct strategy depends on the visual design and the priority of each secti
 
 ## See Also
 
-- [Bundle Size Optimization](./bundle-size-optimization.md) -- Code splitting and chunk strategies
-- [React Server Components](./react-server-components.md) -- Server-side rendering with streaming and Suspense
-- [Rendering Strategies](./rendering-strategies.md) -- CSR, SSR, SSG trade-offs
-- [Data Fetching Patterns](./data-fetching-patterns.md) -- Prefetching and data loading strategies
-- [Web Performance Metrics](./web-performance-metrics.md) -- LCP, INP, and Core Web Vitals
+- [Bundle Size Optimization](bundle-size-optimization.md)
+- [React Server Components](react-server-components.md)
+- [Rendering Strategies](rendering-strategies.md)
+- [Data Fetching Patterns](data-fetching-patterns.md)
+- [Web Performance Metrics](web-performance-metrics.md)

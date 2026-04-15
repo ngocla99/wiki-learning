@@ -350,7 +350,7 @@ This is always a trade-off between the time spent on refactoring and the potenti
 
 ## See Also
 
-- [Lazy Loading and Suspense](./lazy-loading-and-suspense.md) -- Deferring non-critical chunks with dynamic imports
-- [React Server Components](./react-server-components.md) -- Server-only rendering to eliminate client-side JS
-- [Web Performance Metrics](./web-performance-metrics.md) -- LCP, TTI, and other metrics affected by bundle size
-- [Rendering Strategies](./rendering-strategies.md) -- CSR, SSR, SSG and their relationship to bundle size
+- [Lazy Loading and Suspense](lazy-loading-and-suspense.md)
+- [React Server Components](react-server-components.md)
+- [Web Performance Metrics](web-performance-metrics.md)
+- [Rendering Strategies](rendering-strategies.md)
