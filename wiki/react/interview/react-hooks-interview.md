@@ -1,7 +1,7 @@
 # React Hooks — Interview Questions
 
 > Sources: GreatFrontEnd, Unknown
-> Raw: [React Interview Questions — Extended](../../raw/react/2026-04-14-react-interview-questions-extended.md)
+> Raw: [React Interview Questions — Extended](../../../raw/react/2026-04-14-react-interview-questions-extended.md)
 
 ## Overview
 
@@ -167,7 +167,7 @@ Using `useEffect` here would let the browser paint the wrong position first, the
 
 **Caution**: `useLayoutEffect` is synchronous and blocking. Heavy work here delays paint and hurts perceived performance. Prefer `useEffect` unless you observe a flicker.
 
-> See also: [useLayoutEffect](use-layout-effect.md)
+> See also: [useLayoutEffect](../use-layout-effect.md)
 
 ---
 
@@ -214,7 +214,7 @@ function UsePrevious({ value }) {
 | Persists across renders | Yes | Yes |
 | Accessed via | `value` | `.current` |
 
-> See also: [Refs and Imperative API](refs-and-imperative-api.md)
+> See also: [Refs and Imperative API](../refs-and-imperative-api.md)
 
 ---
 
@@ -256,7 +256,7 @@ const ChildComponent = React.memo(({ onClick }) => {
 - Adds overhead itself — don't apply it everywhere by default
 - Wrong/missing dependencies lead to stale closures
 
-> See also: [Memoization in React](memoization.md)
+> See also: [Memoization in React](../memoization.md)
 
 ---
 
@@ -295,7 +295,7 @@ const config = useMemo(() => ({ theme, lang }), [theme, lang]);
 - Don't memoize cheap operations — the cache has overhead too
 - React may discard the cache (e.g., during development or off-screen work in concurrent mode) — never rely on it for correctness
 
-> See also: [Memoization in React](memoization.md)
+> See also: [Memoization in React](../memoization.md)
 
 ---
 
@@ -344,7 +344,7 @@ function Counter() {
 | Many event types that affect the same state | `useReducer` |
 | Want to extract state logic for testing | `useReducer` |
 
-> See also: [React State Management](state-management.md)
+> See also: [React State Management](../state-management.md)
 
 ---
 
@@ -379,10 +379,12 @@ Hardcoded IDs break when a component renders multiple times (the same ID appears
 
 ## See Also
 
-- [Memoization in React](memoization.md)
-- [Refs and Imperative API](refs-and-imperative-api.md)
-- [Debouncing and Throttling](debouncing-throttling.md)
-- [useLayoutEffect](use-layout-effect.md)
-- [Closures in React](closures-in-react.md)
-- [React Re-renders](react-re-renders.md)
-- [React Hooks — Components & State](react-components-interview.md)
+- [Memoization in React](../memoization.md)
+- [Refs and Imperative API](../refs-and-imperative-api.md)
+- [Debouncing and Throttling](../debouncing-throttling.md)
+- [useLayoutEffect](../use-layout-effect.md)
+- [Closures in React](../closures-in-react.md)
+- [React Re-renders](../react-re-renders.md)
+- [React Fundamentals — Interview Questions](react-fundamentals-interview.md)
+- [React Components & State — Interview Questions](react-components-interview.md)
+- [React Architecture & Performance — Interview Questions](react-architecture-interview.md)

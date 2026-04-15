@@ -1,7 +1,7 @@
 # React Fundamentals — Interview Questions
 
 > Sources: GreatFrontEnd, Unknown
-> Raw: [React Interview Questions — Fundamentals](../../raw/react/2026-04-14-react-interview-questions-fundamentals.md)
+> Raw: [React Interview Questions — Fundamentals](../../../raw/react/2026-04-14-react-interview-questions-fundamentals.md)
 
 ## Overview
 
@@ -60,7 +60,7 @@ const element = React.createElement(
 );
 ```
 
-Elements are cheap to create and are thrown away on every render — React compares old and new element trees to determine what changed (see [Reconciliation and Diffing](reconciliation-and-diffing.md)).
+Elements are cheap to create and are thrown away on every render — React compares old and new element trees to determine what changed (see [Reconciliation and Diffing](../reconciliation-and-diffing.md)).
 
 ### React Component
 
@@ -118,6 +118,9 @@ JSX co-locates markup with logic in a single file, making components easier to r
 
 ## See Also
 
-- [Reconciliation and Diffing](reconciliation-and-diffing.md)
-- [React Re-renders](react-re-renders.md)
-- [Component Composition Patterns](component-composition-patterns.md)
+- [Reconciliation and Diffing](../reconciliation-and-diffing.md)
+- [React Re-renders](../react-re-renders.md)
+- [Component Composition Patterns](../component-composition-patterns.md)
+- [React Hooks — Interview Questions](react-hooks-interview.md)
+- [React Components & State — Interview Questions](react-components-interview.md)
+- [React Architecture & Performance — Interview Questions](react-architecture-interview.md)

@@ -1,11 +1,13 @@
 # Wiki Log
 
-## [2026-04-15] restructure | Split 2 long articles into 4
+## [2026-04-15] restructure | Split articles + interview subfolder
 
 - Split: `debouncing-throttling.md` (560 lines) → `debouncing-throttling.md` (338 lines) + `use-layout-effect.md` (202 lines)
 - Split: `data-fetching-patterns.md` (581 lines) → `data-fetching-patterns.md` (462 lines) + `race-conditions.md` (131 lines)
-- Updated cross-references in: interaction-performance, react-hooks-interview, closures-in-react, refs-and-imperative-api
-- Updated index.md: reorganized into 6 sections, added 2 new entries (25 articles total)
+- Moved 4 interview articles into `react/interview/` subfolder for Obsidian graph clustering
+- Added full inter-interview cross-links (all 4 now link to each other)
+- Updated all relative paths (raw refs, See Also links) for new directory depth
+- Updated index.md: reorganized into 6 sections, 25 articles total
 
 ## [2026-04-14] lint | Full wiki audit (23 articles)
 

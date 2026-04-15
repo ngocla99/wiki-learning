@@ -1,7 +1,7 @@
 # React Architecture & Performance — Interview Questions
 
 > Sources: GreatFrontEnd, Unknown
-> Raw: [React Interview Questions — Extended](../../raw/react/2026-04-14-react-interview-questions-extended.md)
+> Raw: [React Interview Questions — Extended](../../../raw/react/2026-04-14-react-interview-questions-extended.md)
 
 ## Overview
 
@@ -38,7 +38,7 @@ Trigger → React re-runs the component function
 | `useCallback` | Memoizes a function; stable reference with `memo` children |
 | `PureComponent` | Class component equivalent of `React.memo` |
 
-> See also: [React Re-renders](react-re-renders.md), [Memoization in React](memoization.md)
+> See also: [React Re-renders](../react-re-renders.md), [Memoization in React](../memoization.md)
 
 ---
 
@@ -69,7 +69,7 @@ State change
 - **Not always faster than direct DOM**: For very simple, infrequent updates, direct DOM access can be faster than the VDOM overhead
 - **Initial render cost**: The first render still creates the full VDOM and real DOM
 
-> See also: [Reconciliation and Diffing](reconciliation-and-diffing.md)
+> See also: [Reconciliation and Diffing](../reconciliation-and-diffing.md)
 
 ---
 
@@ -99,7 +99,7 @@ Reconciliation is the algorithm React uses to determine what changed between two
 {isEditing ? <Form editing={true} /> : <Form editing={false} />}
 ```
 
-> See also: [Reconciliation and Diffing](reconciliation-and-diffing.md)
+> See also: [Reconciliation and Diffing](../reconciliation-and-diffing.md)
 
 ---
 
@@ -132,7 +132,7 @@ Context changes can cascade re-renders across many unrelated components, making 
 
 Unlike state management libraries (Zustand, Jotai, MobX), Context has no built-in way to subscribe to only part of the context value.
 
-> See also: [React Context and Performance](react-context-performance.md)
+> See also: [React Context and Performance](../react-context-performance.md)
 
 ---
 
@@ -174,7 +174,7 @@ Don't consume context at a high level and pass it down as props; consume it as c
 
 For high-frequency or large shared state, Zustand and Jotai offer selective subscriptions (components only re-render when the slice they subscribe to changes) — something Context can't provide natively.
 
-> See also: [React Context and Performance](react-context-performance.md), [React State Management](state-management.md)
+> See also: [React Context and Performance](../react-context-performance.md), [React State Management](../state-management.md)
 
 ---
 
@@ -218,7 +218,7 @@ function MyComponent() {
 
 **Still reach for HOCs** when you need to wrap third-party components you don't control, or when the enhancement needs to work transparently with `ref` forwarding and display name conventions.
 
-> See also: [Component Composition Patterns](component-composition-patterns.md)
+> See also: [Component Composition Patterns](../component-composition-patterns.md)
 
 ---
 
@@ -267,7 +267,7 @@ function Layout({ sidebar, main, footer }) {
 - Child components stay generic (no knowledge of their context)
 - Easier to test each piece in isolation
 
-> See also: [Component Composition Patterns](component-composition-patterns.md)
+> See also: [Component Composition Patterns](../component-composition-patterns.md)
 
 ---
 
@@ -304,7 +304,7 @@ Server/async data (fetching, caching, synchronization)?
 | Redux Toolkit | Large teams, complex state machines | Only subscribed selectors |
 | TanStack Query | Remote/server state | Cache-aware, stale-while-revalidate |
 
-> See also: [React State Management](state-management.md), [React Context and Performance](react-context-performance.md)
+> See also: [React State Management](../state-management.md), [React Context and Performance](../react-context-performance.md)
 
 ---
 
@@ -347,7 +347,7 @@ const Profile = lazy(() => import('./pages/Profile'));
 - Code splitting doesn't deduplicate shared modules (configure `optimization.splitChunks` in webpack for that)
 - It doesn't prefetch future routes (add `<link rel="prefetch">` or use `React.lazy` with prefetch wrappers)
 
-> See also: [Lazy Loading and Suspense](lazy-loading-and-suspense.md), [Bundle Size Optimization](bundle-size-optimization.md)
+> See also: [Lazy Loading and Suspense](../lazy-loading-and-suspense.md), [Bundle Size Optimization](../bundle-size-optimization.md)
 
 ---
 
@@ -384,7 +384,7 @@ const Profile = lazy(() => import('./pages/Profile'));
 
 React shows `<SidebarSkeleton>` while the sidebar loads and `<PageSkeleton>` only if the main content is also loading.
 
-> See also: [Lazy Loading and Suspense](lazy-loading-and-suspense.md), [React Server Components](react-server-components.md)
+> See also: [Lazy Loading and Suspense](../lazy-loading-and-suspense.md), [React Server Components](../react-server-components.md)
 
 ---
 
@@ -412,7 +412,7 @@ Browser: Displays HTML immediately (fast FCP)
 
 If the HTML React generates on the client differs from the server's HTML, React logs a warning and may discard the server HTML. Common causes: `Date.now()`, `Math.random()`, browser-only APIs called during render, timezone differences.
 
-> See also: [Rendering Strategies](rendering-strategies.md)
+> See also: [Rendering Strategies](../rendering-strategies.md)
 
 ---
 
@@ -446,7 +446,7 @@ Browser requests /page
 
 ### Frameworks: Next.js (App Router), Remix
 
-> See also: [Rendering Strategies](rendering-strategies.md)
+> See also: [Rendering Strategies](../rendering-strategies.md)
 
 ---
 
@@ -485,7 +485,7 @@ Browser requests /page
 
 Next.js supports revalidating individual pages on a time interval or on-demand, combining SSG speed with near-real-time data.
 
-> See also: [Rendering Strategies](rendering-strategies.md)
+> See also: [Rendering Strategies](../rendering-strategies.md)
 
 ---
 
@@ -519,7 +519,7 @@ function Modal({ isOpen, children }) {
 
 Even though the portal renders outside the parent's DOM subtree, React events inside the portal still bubble up through the **React component tree** — not the DOM tree. A click inside a modal portal reaches the modal's React parent.
 
-> See also: [React Portals](react-portals.md)
+> See also: [React Portals](../react-portals.md)
 
 ---
 
@@ -569,16 +569,16 @@ Capture rendered HTML output and compare to a saved snapshot to detect unintende
 
 ## See Also
 
-- [React Re-renders](react-re-renders.md)
-- [Reconciliation and Diffing](reconciliation-and-diffing.md)
-- [React Context and Performance](react-context-performance.md)
-- [React State Management](state-management.md)
-- [Component Composition Patterns](component-composition-patterns.md)
-- [Lazy Loading and Suspense](lazy-loading-and-suspense.md)
-- [Bundle Size Optimization](bundle-size-optimization.md)
-- [Rendering Strategies](rendering-strategies.md)
-- [React Portals](react-portals.md)
-- [Error Handling in React](error-handling.md)
+- [React Re-renders](../react-re-renders.md)
+- [Reconciliation and Diffing](../reconciliation-and-diffing.md)
+- [React Context and Performance](../react-context-performance.md)
+- [React State Management](../state-management.md)
+- [Component Composition Patterns](../component-composition-patterns.md)
+- [Lazy Loading and Suspense](../lazy-loading-and-suspense.md)
+- [Bundle Size Optimization](../bundle-size-optimization.md)
+- [Rendering Strategies](../rendering-strategies.md)
+- [React Portals](../react-portals.md)
+- [Error Handling in React](../error-handling.md)
 - [React Fundamentals — Interview Questions](react-fundamentals-interview.md)
 - [React Hooks — Interview Questions](react-hooks-interview.md)
 - [React Components & State — Interview Questions](react-components-interview.md)

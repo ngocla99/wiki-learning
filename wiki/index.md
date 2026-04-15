@@ -66,7 +66,7 @@ Curated question-and-answer sets for React interview preparation, organized by t
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [React Fundamentals](react/react-fundamentals-interview.md) | What is React and its benefits, React Node vs Element vs Component, JSX transformation and key characteristics | 2026-04-14 |
-| [React Hooks](react/react-hooks-interview.md) | Benefits of hooks, rules of hooks, useState callback, useEffect dependency array, useEffect vs useLayoutEffect, useRef, useCallback, useMemo, useReducer, useId | 2026-04-14 |
-| [React Components & State](react/react-components-interview.md) | State vs props, key prop purpose, index keys pitfall, controlled vs uncontrolled, fragments, resetting state, immutability, error boundaries | 2026-04-14 |
-| [React Architecture & Performance](react/react-architecture-interview.md) | Re-rendering, Virtual DOM, reconciliation, Context pitfalls/optimization, HOCs, composition, code splitting, Suspense, hydration, SSR, SSG, portals, testing, state manager decision guide | 2026-04-14 |
+| [React Fundamentals](react/interview/react-fundamentals-interview.md) | What is React and its benefits, React Node vs Element vs Component, JSX transformation and key characteristics | 2026-04-14 |
+| [React Hooks](react/interview/react-hooks-interview.md) | Benefits of hooks, rules of hooks, useState callback, useEffect dependency array, useEffect vs useLayoutEffect, useRef, useCallback, useMemo, useReducer, useId | 2026-04-14 |
+| [React Components & State](react/interview/react-components-interview.md) | State vs props, key prop purpose, index keys pitfall, controlled vs uncontrolled, fragments, resetting state, immutability, error boundaries | 2026-04-14 |
+| [React Architecture & Performance](react/interview/react-architecture-interview.md) | Re-rendering, Virtual DOM, reconciliation, Context pitfalls/optimization, HOCs, composition, code splitting, Suspense, hydration, SSR, SSG, portals, testing, state manager decision guide | 2026-04-14 |

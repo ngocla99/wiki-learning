@@ -1,7 +1,7 @@
 # React Components & State — Interview Questions
 
 > Sources: GreatFrontEnd, Unknown
-> Raw: [React Interview Questions — Extended](../../raw/react/2026-04-14-react-interview-questions-extended.md)
+> Raw: [React Interview Questions — Extended](../../../raw/react/2026-04-14-react-interview-questions-extended.md)
 
 ## Overview
 
@@ -79,7 +79,7 @@ Without stable keys:
 - **Stable** — same data should always produce the same key
 - **Not index** — see next question
 
-> See also: [Reconciliation and Diffing](reconciliation-and-diffing.md)
+> See also: [Reconciliation and Diffing](../reconciliation-and-diffing.md)
 
 ---
 
@@ -256,7 +256,7 @@ function Parent() {
 
 This is a clean escape hatch when option 1 is impractical (e.g., third-party components with internal state).
 
-> See also: [Reconciliation and Diffing](reconciliation-and-diffing.md)
+> See also: [Reconciliation and Diffing](../reconciliation-and-diffing.md)
 
 ---
 
@@ -338,12 +338,14 @@ class ErrorBoundary extends React.Component {
 - Wrap each major route/page with its own boundary (isolates failures per page)
 - Wrap optional widgets (sidebar, widget panels) so one broken widget doesn't kill the page
 
-> See also: [Error Handling in React](error-handling.md)
+> See also: [Error Handling in React](../error-handling.md)
 
 ## See Also
 
-- [Reconciliation and Diffing](reconciliation-and-diffing.md)
-- [React Re-renders](react-re-renders.md)
-- [Error Handling in React](error-handling.md)
-- [Refs and Imperative API](refs-and-imperative-api.md)
+- [Reconciliation and Diffing](../reconciliation-and-diffing.md)
+- [React Re-renders](../react-re-renders.md)
+- [Error Handling in React](../error-handling.md)
+- [Refs and Imperative API](../refs-and-imperative-api.md)
+- [React Fundamentals — Interview Questions](react-fundamentals-interview.md)
 - [React Hooks — Interview Questions](react-hooks-interview.md)
+- [React Architecture & Performance — Interview Questions](react-architecture-interview.md)
