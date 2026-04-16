@@ -257,15 +257,15 @@ This solves social media previews without the full complexity of SSR.
 
 ## Choosing a Strategy
 
-| Factor | CSR/SPA | SSR | SSG |
-|--------|---------|-----|-----|
-| Initial load speed | Slowest | Fast (usually) | Fastest |
-| SEO | Poor | Good | Good |
-| Dynamic content | Excellent | Good | Build-time only |
-| Interaction speed | Excellent | Good (after hydration) | Good (after hydration) |
-| Hosting cost | Lowest | Higher | Lowest |
-| Complexity | Lowest | Highest | Medium |
-| TTI gap | None | Can be significant | Can be significant |
+| Factor             | CSR/SPA   | SSR                    | SSG                    |
+| ------------------ | --------- | ---------------------- | ---------------------- |
+| Initial load speed | Slowest   | Fast (usually)         | Fastest                |
+| SEO                | Poor      | Good                   | Good                   |
+| Dynamic content    | Excellent | Good                   | Build-time only        |
+| Interaction speed  | Excellent | Good (after hydration) | Good (after hydration) |
+| Hosting cost       | Lowest    | Higher                 | Lowest                 |
+| Complexity         | Lowest    | Highest                | Medium                 |
+| TTI gap            | None      | Can be significant     | Can be significant     |
 
 The right choice depends on your users, your content, and what you measure. There are no silver bullets.
 

@@ -1,22 +1,44 @@
 {
-  "collapse-filter": false,
-  "search": "section:(state)",
+  "collapse-filter": true,
+  "search": "",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": false,
-  "colorGroups": [],
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "path:wiki/react/interview  ",
+      "color": {
+        "a": 1,
+        "rgb": 14048348
+      }
+    },
+    {
+      "query": "path:wiki/system-design  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084257
+      }
+    },
+    {
+      "query": "path:wiki/react",
+      "color": {
+        "a": 1,
+        "rgb": 6073814
+      }
+    }
+  ],
   "collapse-display": false,
   "showArrow": false,
   "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 0.993229166666667,
-  "lineSizeMultiplier": 1,
+  "nodeSizeMultiplier": 1.01875,
+  "lineSizeMultiplier": 0.508333333333333,
   "collapse-forces": true,
   "centerStrength": 0.518713248970312,
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.9999999999999959,
+  "scale": 0.7132754626224381,
   "close": false
 }

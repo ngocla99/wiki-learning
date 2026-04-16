@@ -1,5 +1,13 @@
 # Wiki Log
 
+## [2026-04-16] ingest | Authentication series (system-design)
+
+- Source: [ByteByteGo Newsletter — Authentication Explained Part 1](https://blog.bytebytego.com/p/password-session-cookie-token-jwt) (Alex Xu, 2023-04-05)
+- Source: [ByteByteGo Newsletter — Authentication Explained Part 2](https://blog.bytebytego.com/p/password-session-cookie-token-jwt-sso-oauth) (Alex Xu, 2023-04-12)
+- New category: system-design
+- New: Authentication Methods (HTTP Basic Auth, Session-Cookie, Token, JWT)
+- New: SSO, OAuth, and Passwordless Authentication (OTP, SSO, OAuth 2.0, OIDC, biometrics, MFA, FIDO2)
+
 ## [2026-04-15] restructure | Split articles + interview subfolder
 
 - Split: `debouncing-throttling.md` (560 lines) → `debouncing-throttling.md` (338 lines) + `use-layout-effect.md` (202 lines)

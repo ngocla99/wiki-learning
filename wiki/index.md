@@ -70,3 +70,16 @@ Curated question-and-answer sets for React interview preparation, organized by t
 | [React Hooks](react/interview/react-hooks-interview.md) | Benefits of hooks, rules of hooks, useState callback, useEffect dependency array, useEffect vs useLayoutEffect, useRef, useCallback, useMemo, useReducer, useId | 2026-04-14 |
 | [React Components & State](react/interview/react-components-interview.md) | State vs props, key prop purpose, index keys pitfall, controlled vs uncontrolled, fragments, resetting state, immutability, error boundaries | 2026-04-14 |
 | [React Architecture & Performance](react/interview/react-architecture-interview.md) | Re-rendering, Virtual DOM, reconciliation, Context pitfalls/optimization, HOCs, composition, code splitting, Suspense, hydration, SSR, SSG, portals, testing, state manager decision guide | 2026-04-14 |
+
+---
+
+## system-design
+
+System design concepts, architecture patterns, and infrastructure fundamentals.
+
+### Security & Authentication
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Authentication Methods](system-design/authentication-methods.md) | Evolution from HTTP Basic Auth → Session-Cookie → Token → JWT; stateful vs stateless auth, CSRF/XSS mitigations, tiered token management, and JWT structure | 2026-04-16 |
+| [SSO, OAuth, and Passwordless Auth](system-design/authentication-sso-oauth-passwordless.md) | OTP, SSO (CAS/SAML/OIDC), OAuth 2.0 grant types, biometrics, MFA/TOTP, and FIDO2 (WebAuthn + CTAP) | 2026-04-16 |

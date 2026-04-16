@@ -9,7 +9,8 @@
       "Bash([ ! -f \"/d/Nemo/learning/wiki-learning/wiki/$link\" ])",
       "Bash(python3)",
       "Bash(ls /d/Nemo/learning/wiki-learning/wiki/*.md)",
-      "Bash(ls /d/Nemo/learning/wiki-learning/wiki/react/*.md)"
+      "Bash(ls /d/Nemo/learning/wiki-learning/wiki/react/*.md)",
+      "WebFetch(domain:bytebytego-nemo.vercel.app)"
     ]
   }
 }
