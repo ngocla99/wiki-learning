@@ -73,6 +73,59 @@ Curated question-and-answer sets for React interview preparation, organized by t
 
 ---
 
+## nodejs
+
+Node.js design patterns, asynchronous programming, streams, scalability, and distributed systems from "Node.js Design Patterns, 4th Edition."
+
+### Platform & Modules
+
+Core runtime fundamentals and the module system.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [The Node.js Platform](nodejs/nodejs-platform.md) | Node.js philosophy (small core/modules/surface area), reactor pattern, event demultiplexing, libuv, V8, and TypeScript integration | 2026-04-16 |
+| [The Module System](nodejs/module-system.md) | ES modules syntax, CommonJS, ESM vs CJS differences, circular dependencies, monkey patching, TypeScript module configuration | 2026-04-16 |
+
+### Asynchronous Patterns
+
+Callbacks, events, promises, async/await, and streams — the core async building blocks.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Callbacks and Events](nodejs/callbacks-and-events.md) | CPS (sync/async), "Unleashing Zalgo", Node.js callback conventions, EventEmitter, Observer pattern, memory leaks | 2026-04-16 |
+| [Asynchronous Control Flow](nodejs/async-control-flow.md) | Sequential/concurrent/limited-concurrent execution with callbacks, promises, and async/await; TaskQueue, race conditions, promisification | 2026-04-16 |
+| [Coding with Streams](nodejs/streams.md) | Readable/Writable/Duplex/Transform streams, backpressure, pipeline(), piping patterns (combine/fork/merge/mux-demux), Web Streams | 2026-04-16 |
+
+### Design Patterns
+
+Classic GoF patterns adapted for JavaScript and Node.js.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Creational Design Patterns](nodejs/creational-design-patterns.md) | Factory, Builder, Revealing Constructor, Singleton, Dependency Injection and wiring modules | 2026-04-16 |
+| [Structural Design Patterns](nodejs/structural-design-patterns.md) | Proxy (composition/augmentation/built-in Proxy), Decorator, Adapter, and the line between Proxy and Decorator | 2026-04-16 |
+| [Behavioral Design Patterns](nodejs/behavioral-design-patterns.md) | Strategy, State, Template, Iterator (protocols, generators, async iterators), Middleware, Command pattern | 2026-04-17 |
+
+### Testing & Advanced
+
+Testing patterns, advanced async recipes, and production techniques.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Testing Patterns](nodejs/testing-patterns.md) | Testing pyramid, Node.js test runner, AAA pattern, mocking (mock.fn, Undici, module mocking), integration tests, E2E with Playwright | 2026-04-17 |
+| [Advanced Recipes](nodejs/advanced-recipes.md) | Async initialization (queues, State), request batching/caching, canceling with AbortController, CPU-bound tasks (worker threads, child processes) | 2026-04-17 |
+
+### Scalability & Messaging
+
+Scaling applications and distributed system communication patterns.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Scalability Patterns](nodejs/scalability-patterns.md) | Scale cube (X/Y/Z), cluster module, reverse proxy (Nginx), dynamic scaling, Docker/Kubernetes, monolith vs microservices, integration patterns | 2026-04-17 |
+| [Messaging Patterns](nodejs/messaging-patterns.md) | Pub/Sub, reliable queues (AMQP/RabbitMQ), Redis Streams, task distribution (fan-out/fan-in), request/reply (correlation ID, return address) | 2026-04-17 |
+
+---
+
 ## system-design
 
 System design concepts, architecture patterns, and infrastructure fundamentals.
