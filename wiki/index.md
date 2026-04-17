@@ -136,3 +136,23 @@ System design concepts, architecture patterns, and infrastructure fundamentals.
 |---------|---------|---------|
 | [Authentication Methods](system-design/authentication-methods.md) | Evolution from HTTP Basic Auth → Session-Cookie → Token → JWT; stateful vs stateless auth, CSRF/XSS mitigations, tiered token management, and JWT structure | 2026-04-16 |
 | [SSO, OAuth, and Passwordless Auth](system-design/authentication-sso-oauth-passwordless.md) | OTP, SSO (CAS/SAML/OIDC), OAuth 2.0 grant types, biometrics, MFA/TOTP, and FIDO2 (WebAuthn + CTAP) | 2026-04-16 |
+
+---
+
+## aws
+
+AWS cloud computing services, infrastructure, CI/CD integration, and interview preparation for fullstack developers.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [AWS Services Interview Q&A](aws/aws-services-interview.md) | Practical Q&A covering EC2, RDS, IAM, S3, CloudWatch, VPC, CodeBuild — mapped to real project experience | 2026-04-17 |
+
+---
+
+## interview
+
+Behavioral interview preparation, self-introduction, and STAR-method stories.
+
+| Article | Summary | Updated |
+|---------|---------|--------|
+| [Behavioral Interview](interview/behavioral-interview.md) | Self-introduction, why leave, STAR story (legacy modernization: 98% startup improvement), common behavioral Q&A, and interview tips | 2026-04-17 |

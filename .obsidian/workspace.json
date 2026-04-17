@@ -11,13 +11,28 @@
             "id": "cee701ab35a0f299",
             "type": "leaf",
             "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/interview/behavioral-interview.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "behavioral-interview"
+            }
+          },
+          {
+            "id": "b38a06f1b9b26661",
+            "type": "leaf",
+            "state": {
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -179,8 +194,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "cee701ab35a0f299",
+  "active": "b38a06f1b9b26661",
   "lastOpenFiles": [
+    "wiki/interview/behavioral-interview.md",
+    "wiki/aws/aws-services-interview.md",
+    "wiki/aws/aws-cicd-devops.md",
+    "wiki/interview",
+    "wiki/aws/aws-compute-hosting.md",
+    "wiki/aws/aws-networking-security.md",
+    "wiki/aws/aws-storage-database.md",
+    "wiki/aws",
     "raw/nodejs/design-patterns.md",
     ", records.md",
     "wiki/nodejs/scalability-patterns.md",
@@ -204,14 +227,11 @@
     "wiki/nodejs/structural-design-patterns.md",
     "wiki/nodejs/streams.md.tmp.34440.1776332856985",
     "wiki/nodejs/async-control-flow.md.tmp.34440.1776332830387",
-    "wiki/nodejs/structural-design-patterns.md.tmp.34440.1776332813653",
-    "wiki/nodejs/creational-design-patterns.md.tmp.34440.1776332793854",
     "raw/nodejs/design-pattern.md",
     "raw/nodejs/document.md",
     "wiki/react/memoization.md",
     "wiki/react/react-compiler.md",
     "wiki/react/error-handling.md",
-    "wiki/system-design/authentication-sso-oauth-passwordless.md",
     "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-evolution-summary.webp",
     "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-fido2-registration-flow.webp",
     "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-fido-timeline.webp",
@@ -222,10 +242,6 @@
     "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-otp-flow.webp",
     "download.webp",
     "download 7.webp",
-    "raw/system-design/2023-04-12-authentication-explained-part2-bytebytego.md",
-    "wiki/index.md",
-    "wiki/react/react-server-components.md",
-    "raw/system-design/2023-04-05-authentication-explained-bytebytego.md",
     "Untitled.canvas"
   ]
 }

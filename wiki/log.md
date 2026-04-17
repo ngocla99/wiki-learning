@@ -1,5 +1,17 @@
 # Wiki Log
 
+## [2026-04-17] new | Behavioral Interview Preparation
+- New category: interview
+- New: Behavioral Interview (self-intro, STAR stories, common Q&A)
+
+## [2026-04-17] ingest | AWS cloud computing knowledge base
+- New category: aws
+- New: AWS Compute & Hosting (EC2, Auto Scaling, ELB, Lambda, ECS)
+- New: AWS Networking & Security (VPC, IAM, CloudFront, Route 53, WAF, Cognito)
+- New: AWS Storage & Database (S3, EBS, RDS, DynamoDB, ElastiCache, SQS, SNS)
+- New: AWS CI/CD & DevOps (CodeBuild, CodeDeploy, CloudWatch, Azure DevOps integration)
+- New: AWS Services Interview Q&A (practical Q&A mapped to LMP project)
+
 ## [2026-04-16] ingest | Authentication series (system-design)
 
 - Source: [ByteByteGo Newsletter — Authentication Explained Part 1](https://blog.bytebytego.com/p/password-session-cookie-token-jwt) (Alex Xu, 2023-04-05)
