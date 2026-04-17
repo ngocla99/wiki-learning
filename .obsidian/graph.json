@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:wiki/react/interview  ",
@@ -18,7 +18,7 @@
       "query": "path:wiki/system-design  ",
       "color": {
         "a": 1,
-        "rgb": 6084257
+        "rgb": 16638071
       }
     },
     {
@@ -26,6 +26,13 @@
       "color": {
         "a": 1,
         "rgb": 6073814
+      }
+    },
+    {
+      "query": "path:wiki/nodejs  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084188
       }
     }
   ],
