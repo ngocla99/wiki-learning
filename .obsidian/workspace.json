@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "6757966eea711b97",
+        "id": "745a0639f829deab",
         "type": "tabs",
         "children": [
           {
-            "id": "b056d2ae06c88700",
+            "id": "cee701ab35a0f299",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -179,9 +179,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "b056d2ae06c88700",
+  "active": "cee701ab35a0f299",
   "lastOpenFiles": [
     "raw/nodejs/design-patterns.md",
+    ", records.md",
     "wiki/nodejs/scalability-patterns.md",
     "wiki/nodejs/nodejs-platform.md",
     "wiki/nodejs/module-system.md",

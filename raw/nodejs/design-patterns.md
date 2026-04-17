@@ -36571,7 +36571,7 @@ async function processStreamMessages() { // 3
 
   while (true) {
 
-    const [[, records]] = await redisClientXread.xread(
+    const [, records] = await redisClientXread.xread(
 
       'BLOCK',
 
