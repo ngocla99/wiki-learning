@@ -130,6 +130,12 @@ Scaling applications and distributed system communication patterns.
 
 System design concepts, architecture patterns, and infrastructure fundamentals.
 
+### API Design
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [GraphQL](system-design/graphql.md) | GraphQL query language and runtime — declarative queries, SDL, mutations, subscriptions, resolvers, request lifecycle, REST/BFF comparison, federation (directives, vs stitching), adoption patterns, real-world use cases, and ecosystem tools | 2026-04-19 |
+
 ### Security & Authentication
 
 | Article | Summary | Updated |

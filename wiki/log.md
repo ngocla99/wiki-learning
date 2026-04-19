@@ -1,5 +1,11 @@
 # Wiki Log
 
+## [2026-04-19] ingest | GraphQL
+- Source: [ByteByteGo — A Crash Course in GraphQL](https://blog.bytebytego.com/p/a-crash-course-in-graphql) (Alex Xu, 2024-05-16)
+- Source: [ByteByteGo — GraphQL 101: API Approach Beyond REST](https://blog.bytebytego.com/p/graphql-101-api-approach-beyond-rest) (Alex Xu, 2024-09-25)
+- New: GraphQL (declarative queries, SDL, mutations, subscriptions, REST/BFF comparison, federation, adoption patterns)
+- Updated: GraphQL (added resolvers, request lifecycle, versioning/type-safety comparison, federation directives, schema stitching comparison, real-world use cases, ecosystem tools)
+
 ## [2026-04-17] new | Behavioral Interview Preparation
 - New category: interview
 - New: Behavioral Interview (self-intro, STAR stories, common Q&A)

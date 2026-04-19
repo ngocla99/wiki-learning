@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "745a0639f829deab",
+        "id": "1c9b0cdea6abc38e",
         "type": "tabs",
         "children": [
           {
-            "id": "cee701ab35a0f299",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/interview/behavioral-interview.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "behavioral-interview"
-            }
-          },
-          {
-            "id": "b38a06f1b9b26661",
+            "id": "1a6eea66e9c8f073",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -31,8 +17,7 @@
               "title": "Graph view"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -194,54 +179,53 @@
       "bases:Create new base": false
     }
   },
-  "active": "b38a06f1b9b26661",
+  "active": "1a6eea66e9c8f073",
   "lastOpenFiles": [
+    "wiki/system-design/graphql.md",
+    "wiki/system-design/assets/Pasted image 20260419154219.png",
+    "raw/system-design/2024-09-25-graphql-101-api-approach-beyond-rest.md",
+    "wiki/system-design/assets/graphql/graphql-server-with-db.png",
+    "wiki/system-design/assets/graphql/graphql-federation-gateway.png",
+    "wiki/system-design/assets/graphql/graphql-integration-layer.png",
+    "wiki/system-design/assets/graphql/graphql-bff-pattern.png",
+    "wiki/system-design/assets/graphql/graphql-basic-architecture.png",
+    "wiki/system-design/assets/graphql/graphql-api-protocols-landscape.png",
+    "wiki/system-design/assets/graphql",
+    "wiki/system-design/assets/Pasted image 20260419110037.png",
+    "wiki/system-design/assets/Pasted image 20260419110019.png",
+    "wiki/system-design/assets/Pasted image 20260419105853.png",
+    "wiki/system-design/authentication-sso-oauth-passwordless.md",
+    "raw/system-design/2024-05-16-crash-course-in-graphql.md",
+    "wiki/system-design/authentication-methods.md",
+    "2026-04-19.md",
+    "Untitled.canvas",
+    "raw/system-design/2024-05-16-a-crash-course-in-graphql.md",
     "wiki/interview/behavioral-interview.md",
-    "wiki/aws/aws-services-interview.md",
-    "wiki/aws/aws-cicd-devops.md",
-    "wiki/interview",
-    "wiki/aws/aws-compute-hosting.md",
-    "wiki/aws/aws-networking-security.md",
-    "wiki/aws/aws-storage-database.md",
-    "wiki/aws",
-    "raw/nodejs/design-patterns.md",
-    ", records.md",
+    "wiki/react/react-portals.md",
+    "wiki/system-design/assets/authentication-sso-oauth-passwordless",
+    "wiki/system-design/assets/authentication-methods",
+    "wiki/system-design/assets",
+    "wiki/system-design",
+    "wiki/nodejs/testing-patterns.md",
+    "wiki/nodejs/structural-design-patterns.md",
+    "wiki/nodejs/streams.md",
     "wiki/nodejs/scalability-patterns.md",
     "wiki/nodejs/nodejs-platform.md",
     "wiki/nodejs/module-system.md",
+    "wiki/nodejs/messaging-patterns.md",
     "wiki/nodejs/creational-design-patterns.md",
     "wiki/nodejs/callbacks-and-events.md",
-    "wiki/nodejs/streams.md",
-    "wiki/system-design/authentication-methods.md",
-    "wiki/index.md.tmp.34440.1776387408810",
-    "wiki/nodejs/scalability-patterns.md.tmp.34440.1776387362500",
-    "wiki/nodejs/messaging-patterns.md",
-    "wiki/nodejs/messaging-patterns.md.tmp.34440.1776387358282",
-    "wiki/nodejs/testing-patterns.md",
-    "wiki/nodejs/testing-patterns.md.tmp.34440.1776387344239",
-    "wiki/nodejs/advanced-recipes.md",
-    "wiki/nodejs/advanced-recipes.md.tmp.34440.1776387302093",
     "wiki/nodejs/behavioral-design-patterns.md",
-    "wiki/nodejs/behavioral-design-patterns.md.tmp.34440.1776387122051",
     "wiki/nodejs/async-control-flow.md",
-    "wiki/nodejs/structural-design-patterns.md",
-    "wiki/nodejs/streams.md.tmp.34440.1776332856985",
-    "wiki/nodejs/async-control-flow.md.tmp.34440.1776332830387",
-    "raw/nodejs/design-pattern.md",
-    "raw/nodejs/document.md",
-    "wiki/react/memoization.md",
-    "wiki/react/react-compiler.md",
-    "wiki/react/error-handling.md",
-    "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-evolution-summary.webp",
-    "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-fido2-registration-flow.webp",
-    "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-fido-timeline.webp",
-    "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-totp-flow.webp",
-    "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-oauth2-code-grant-flow.webp",
-    "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-oauth2-roles.webp",
-    "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-sso-cas-flow.webp",
-    "wiki/system-design/assets/authentication-sso-oauth-passwordless/auth-otp-flow.webp",
-    "download.webp",
-    "download 7.webp",
-    "Untitled.canvas"
+    "wiki/nodejs/advanced-recipes.md",
+    "wiki/nodejs",
+    "wiki/interview",
+    "wiki/aws/aws-services-interview.md",
+    "wiki/aws",
+    "raw/system-design/2023-04-12-authentication-explained-part2-bytebytego.md",
+    "raw/system-design/2023-04-05-authentication-explained-bytebytego.md",
+    "raw/system-design",
+    "raw/nodejs/design-patterns.md",
+    "raw/nodejs"
   ]
 }
