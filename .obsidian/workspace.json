@@ -11,10 +11,14 @@
             "id": "1a6eea66e9c8f073",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "wiki/system-design/rest-api-design.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "rest-api-design"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 430.5
   },
   "right": {
     "id": "ba0c353034b9bf0e",
@@ -181,26 +185,32 @@
   },
   "active": "1a6eea66e9c8f073",
   "lastOpenFiles": [
+    "wiki/system-design/assets/Pasted image 20260419195104.png",
+    "wiki/system-design/assets/Pasted image 20260419195053.png",
+    "wiki/system-design/assets/Pasted image 20260419195011.png",
+    "raw/system-design/2023-05-17-design-effective-secure-rest-apis.md",
+    "wiki/system-design/rest-api-design.md",
+    "wiki/system-design/api-design.md",
+    "wiki/system-design/authentication-methods.md",
     "wiki/system-design/graphql.md",
-    "wiki/system-design/assets/Pasted image 20260419154219.png",
+    "wiki/interview/behavioral-interview.md",
+    "wiki/system-design/assets/api-design/api-styles-comparison.png",
+    "wiki/system-design/assets/api-design/api-styles-architecture.png",
+    "wiki/system-design/assets/api-design/api-popularity-chart.png",
+    "wiki/system-design/assets/api-design/api-code-first-vs-api-first.png",
+    "wiki/system-design/assets/api-design",
+    "wiki/system-design/assets/Pasted image 20260419162158.png",
+    "wiki/system-design/assets/Pasted image 20260419162142.png",
+    "wiki/system-design/assets/Pasted image 20260419162119.png",
+    "wiki/system-design/assets/Pasted image 20260419162037.png",
+    "raw/system-design/2023-05-10-mastering-art-of-api-design.md",
     "raw/system-design/2024-09-25-graphql-101-api-approach-beyond-rest.md",
-    "wiki/system-design/assets/graphql/graphql-server-with-db.png",
-    "wiki/system-design/assets/graphql/graphql-federation-gateway.png",
-    "wiki/system-design/assets/graphql/graphql-integration-layer.png",
-    "wiki/system-design/assets/graphql/graphql-bff-pattern.png",
-    "wiki/system-design/assets/graphql/graphql-basic-architecture.png",
-    "wiki/system-design/assets/graphql/graphql-api-protocols-landscape.png",
     "wiki/system-design/assets/graphql",
-    "wiki/system-design/assets/Pasted image 20260419110037.png",
-    "wiki/system-design/assets/Pasted image 20260419110019.png",
-    "wiki/system-design/assets/Pasted image 20260419105853.png",
     "wiki/system-design/authentication-sso-oauth-passwordless.md",
     "raw/system-design/2024-05-16-crash-course-in-graphql.md",
-    "wiki/system-design/authentication-methods.md",
     "2026-04-19.md",
     "Untitled.canvas",
     "raw/system-design/2024-05-16-a-crash-course-in-graphql.md",
-    "wiki/interview/behavioral-interview.md",
     "wiki/react/react-portals.md",
     "wiki/system-design/assets/authentication-sso-oauth-passwordless",
     "wiki/system-design/assets/authentication-methods",
@@ -220,12 +230,7 @@
     "wiki/nodejs/advanced-recipes.md",
     "wiki/nodejs",
     "wiki/interview",
-    "wiki/aws/aws-services-interview.md",
     "wiki/aws",
-    "raw/system-design/2023-04-12-authentication-explained-part2-bytebytego.md",
-    "raw/system-design/2023-04-05-authentication-explained-bytebytego.md",
-    "raw/system-design",
-    "raw/nodejs/design-patterns.md",
-    "raw/nodejs"
+    "raw/system-design"
   ]
 }

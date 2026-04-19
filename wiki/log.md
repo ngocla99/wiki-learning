@@ -1,5 +1,15 @@
 # Wiki Log
 
+## [2026-04-19] ingest | REST API Design
+- Source: [ByteByteGo — Design Effective and Secure REST APIs](https://blog.bytebytego.com/p/design-effective-and-secure-rest-apis) (Alex Xu, 2023-05-17)
+- New: REST API Design (API smell detection, Richardson Maturity Model, HTTP verbs/CRUD, status codes, internal error codes)
+- Updated: REST API Design (added practical design lessons, API versioning, idempotency, API security — user ID design, password hashing, resource protection)
+
+## [2026-04-19] ingest | API Design
+- Source: [ByteByteGo — Mastering the Art of API Design](https://blog.bytebytego.com/p/mastering-the-art-of-api-design) (Alex Xu, 2023-05-10)
+- New: API Design (API First principle, 7 architectural styles, popularity, selection guide)
+- Updated: GraphQL (added caching trade-off, REST migration note, cross-reference to API Design)
+
 ## [2026-04-19] ingest | GraphQL
 - Source: [ByteByteGo — A Crash Course in GraphQL](https://blog.bytebytego.com/p/a-crash-course-in-graphql) (Alex Xu, 2024-05-16)
 - Source: [ByteByteGo — GraphQL 101: API Approach Beyond REST](https://blog.bytebytego.com/p/graphql-101-api-approach-beyond-rest) (Alex Xu, 2024-09-25)

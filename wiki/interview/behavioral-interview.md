@@ -13,13 +13,13 @@ Chuẩn bị câu trả lời cho các câu hỏi behavioral interview phổ bi�
 
 > **Tip**: Giữ ngắn gọn (60-90 giây). Nêu: tên, kinh nghiệm, project gần nhất, điểm mạnh, lý do quan tâm vị trí.
 
-Hi, I'm Ngoc, 27 years old. I am currently working as a Full-stack Developer at Ewoosoft Vietnam.
+Hi, I'm Ngoc, 27 years old. I am currently working as a Full-stack Developer at Ewoosoft Viet.
 
-Recently, I've led frontend development for a global **Group Purchase Campaign Platform**, using Next.js 16, Tailwind, and Shadcn. I focus on performance, scalability, and a consistent design system, while building a modular architecture with **pnpm monorepo and Turborepo**. I also collaborate closely with backend teams (NestJS, PostgreSQL) to ensure smooth end-to-end integration.
+Recently, I've led frontend development for a global **Group Purchase Campaign Platform**, using Next.js 16, Tailwind, and Shadcn. I focus on performance, scalability, and a consistent design system, while building a modular architecture with **monorepo**. I also collaborate closely with backend teams (using NestJS, PostgreSQL) to ensure smooth end-to-end integration.
 
-Over the past **5+ years**, I have worked as a full-stack and front-end developer, including experience outsourcing for **FPT Software**, insourcing for **Viettel Security**, as well as role at **Ewoosoft Vietnam**.
+Over the past **5+ years**, I have worked as a full-stack and front-end developer, including experience outsourcing for **FPT Software**, insourcing for **Viettel Security**, as well as role at **Ewoosoft Viet**.
 
-I have hands-on experience with React, Next.js, Angular, Node.js/NestJS, MongoDB, PostgreSQL, Docker.
+I have hands-on experience with React.js, Next.js, Node.js/NestJS, MongoDB, PostgreSQL, Docker.
 
 I also received the **"Best Employee of the Year 2025"** award for my contributions to architecture optimization and the integration and sharing of AI tools within the workplace.
 
@@ -27,13 +27,13 @@ Looking ahead, I am very excited about this Fullstack Developer position because
 
 ### Các điểm nhấn khi giới thiệu
 
-| Điểm nhấn | Chi tiết | Tại sao quan trọng |
-|---|---|---|
-| Led frontend | Group Purchase Campaign Platform, Next.js 16 | Chứng minh khả năng lead |
-| Monorepo architecture | pnpm + Turborepo | Cho thấy hiểu scalable architecture |
-| Cross-team collaboration | Backend NestJS/PostgreSQL | Fullstack mindset |
-| Award | Best Employee 2025 | Được công nhận |
-| AI tools integration | Sharing AI tools trong team | Proactive, cập nhật technology |
+| Điểm nhấn                | Chi tiết                                     | Tại sao quan trọng                  |
+| ------------------------ | -------------------------------------------- | ----------------------------------- |
+| Led frontend             | Group Purchase Campaign Platform, Next.js 16 | Chứng minh khả năng lead            |
+| Monorepo architecture    | pnpm + Turborepo                             | Cho thấy hiểu scalable architecture |
+| Cross-team collaboration | Backend NestJS/PostgreSQL                    | Fullstack mindset                   |
+| Award                    | Best Employee 2025                           | Được công nhận                      |
+| AI tools integration     | Sharing AI tools trong team                  | Proactive, cập nhật technology      |
 
 ---
 

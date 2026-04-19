@@ -141,9 +141,12 @@ A GraphQL server sits in front of multiple existing systems (microservices, lega
 | Underfetching | Common — n+1 problem | Eliminated — nested queries in one request |
 | Versioning | Explicit versions (`/v1/`, `/v2/`) create maintenance overhead | Schema evolution — add fields freely, deprecate old ones |
 | Type safety | No built-in type system; relies on external docs | Strong type system acts as a live contract |
+| Caching | Simple — HTTP caching by URL | More complex — queries are dynamic, URL-based caching doesn't apply |
 | Flexibility | Low — new endpoints for new shapes | High — any combination of fields |
 
 REST's overfetching, underfetching, versioning overhead, and lack of a built-in type system are the primary pain points GraphQL solves.
+
+> **Migration note**: GraphQL is not a replacement for REST — it can be built on top of existing REST services, making adoption less invasive. Organizations should evaluate whether the complexity trade-offs (caching difficulty, steeper learning curve, potential over-exposure of fields) justify the switch.
 
 ## GraphQL vs Backend-for-Frontend (BFF)
 
@@ -247,4 +250,5 @@ This is the recommended long-term architecture for large organizations — it pr
 
 ## See Also
 
+- [API Design](api-design.md)
 - [Authentication Methods](authentication-methods.md)
