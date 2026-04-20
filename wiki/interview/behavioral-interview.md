@@ -34,6 +34,7 @@ Looking ahead, I am very excited about this Fullstack Developer position because
 | Cross-team collaboration | Backend NestJS/PostgreSQL                    | Fullstack mindset                   |
 | Award                    | Best Employee 2025                           | Được công nhận                      |
 | AI tools integration     | Sharing AI tools trong team                  | Proactive, cập nhật technology      |
+|                          |                                              |                                     |
 
 ---
 
@@ -59,7 +60,7 @@ I decided to leave my previous company to look for **new challenges and opportun
 
 **Situation**
 
-In my previous project, a dental clinic management system, I was working on a long-maintained codebase built with **outdated technologies** like React 16 and Node.js 16. The project had accumulated a lot of **technical debt** over time, including **unused submodules**, legacy code patterns, and a large number of unnecessary dependencies. This significantly slowed down development and made onboarding and maintenance difficult.
+In my previous project, a dental clinic management system, I was working on a long-maintained codebase built with **outdated technologies** like React 16 and Node.js 16. The project had accumulated a lot of **technical debt** over time, including **unused style submodules**, legacy code patterns, and a large number of unnecessary dependencies. This significantly slowed down development and made onboarding and maintenance difficult.
 
 **Task**
 
@@ -71,7 +72,7 @@ Tôi đề xuất và dẫn dắt effort modernization:
 
 1. **Build tooling**: Migrate frontend từ Create React App sang **Vite**, upgrade Node.js v16 → v20.
 2. **Codebase cleanup**: Dùng tool **Knip** để audit → tìm và xóa hơn **1,000 unused files** và khoảng **50 unnecessary dependencies**. Dọn sạch legacy submodules và refactor outdated patterns.
-3. **Frontend optimization**: Tối ưu data fetching bằng Apollo's **cache-and-network policy**, gom GraphQL queries, và implement **optimistic updates** để cải thiện responsiveness.
+3. **Frontend optimization**: Tối ưu data fetching bằng Apollo's **cache-and-network policy**, gom GraphQL queries, và implement **optimistic updates** để cải thiện UX.
 
 **Result**
 
@@ -123,6 +124,13 @@ Yes, I have experience working with Agile/Scrum. I have participated in sprint p
 
 *Answer*: "I maintain a personal knowledge wiki where I research, take notes and synthesize information from articles, books, and courses. I also actively integrate AI tools into my workflow and share learnings with my team — which contributed to my Best Employee award."
 
+### What specifically interests you about this role at NAB, and what value do you believe you can bring in your first three to six months? How would you measure success?
+
+*Answer*: "What excites me most about this Full-stack developer role at NAB is the opportunity work on large-scale, mission-critical digital banking platform that power everyday financial experiences for millions people. 
+In the first 3 to 6 months I can bring immediate value by:
+- Quickly delivering production-ready features using the modern stack I've been shipping daily (like Nextjs, Reactjs, Tailwind/Shadcn, backend pattern with Nestjs/Nodejs)
+- Helping scale component libraries and architecture
+- Driving performance and developer experience improvements - for example I migrated CRA project to Vite (cutting startup time from 90 seconds to 1-2 seconds and build time by 5x)"
 
 ---
 

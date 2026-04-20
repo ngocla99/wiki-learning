@@ -130,7 +130,6 @@ On every re-render with changed dependencies, the in-progress request is cancell
 - **Ref comparison** checks whether the resolved data still matches the current prop before updating state.
 - **Cleanup flag** (`isActive`) uses closure scoping to discard stale results -- simple and reliable.
 - **AbortController** cancels the actual HTTP request, saving bandwidth and preventing stale responses entirely -- the most complete solution.
-- Libraries like TanStack Query and SWR handle race conditions internally, so you do not need manual fixes when using them.
 
 ## See Also
 
