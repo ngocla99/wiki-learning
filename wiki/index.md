@@ -130,6 +130,14 @@ Scaling applications and distributed system communication patterns.
 
 System design concepts, architecture patterns, and infrastructure fundamentals.
 
+### Database Selection
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Database Types](system-design/database-types.md) | Relational, NoSQL (document/column/key-value/graph), NewSQL, and time-series — strengths, weaknesses, examples, and comparison table | 2026-04-29 |
+| [Database Selection Factors](system-design/database-selection-factors.md) | Seven factors for choosing a database — scalability, performance, consistency (CAP/PACELC), data model, security, cost, community/ecosystem | 2026-04-29 |
+| [Database Selection Process](system-design/database-selection-process.md) | Five-step selection workflow plus three case studies (e-commerce hybrid PostgreSQL+Elasticsearch, social media DynamoDB adjacency lists, IoT InfluxDB) | 2026-04-29 |
+
 ### API Design
 
 | Article | Summary | Updated |
