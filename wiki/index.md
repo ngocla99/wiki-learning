@@ -136,7 +136,7 @@ System design concepts, architecture patterns, and infrastructure fundamentals.
 |---------|---------|---------|
 | [API Design](system-design/api-design.md) | API First principle and 7 architectural styles (REST, GraphQL, WebSocket, Webhook, gRPC, SOAP, Kafka), popularity data, and selection guidance | 2026-04-19 |
 | [GraphQL](system-design/graphql.md) | GraphQL query language and runtime — declarative queries, SDL, mutations, subscriptions, resolvers, request lifecycle, REST/BFF comparison, federation (directives, vs stitching), adoption patterns, real-world use cases, and ecosystem tools | 2026-04-19 |
-| [REST API Design](system-design/rest-api-design.md) | API smell detection, Richardson Maturity Model (Levels 0–3), HTTP verbs/CRUD mapping, status codes, internal error codes, versioning strategies, idempotency, and API security (ID design, password hashing, resource protection) | 2026-04-19 |
+| [REST API Design](system-design/rest-api-design.md) | API smell detection, Richardson Maturity Model, resource naming, HTTP verbs/status codes, versioning, pagination strategies (offset/cursor/keyset), filtering, sorting, schema-first (OpenAPI/Protobuf), REST vs gRPC, predictable response envelopes, idempotency (keys, storage, gRPC notes), authentication/authorization (RBAC/ABAC/OAuth scopes, token types), scalability (stateless, horizontal scaling, caching, async/queues, monitoring), and security (rate limiting, input validation, error leakage, HTTPS/HSTS) | 2026-04-29 |
 
 ### Security & Authentication
 

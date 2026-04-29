@@ -1,5 +1,13 @@
 # Wiki Log
 
+## [2026-04-29] ingest | REST API Design (depth pass — idempotency, pagination, security)
+- Source: [ByteByteGo — The Art of REST API Design: Idempotency, Pagination, and Security](https://blog.bytebytego.com/p/the-art-of-rest-api-design-idempotency) (2025-04-03)
+- Updated: REST API Design — replaced basic pagination with three-strategy comparison (offset / cursor / keyset, plus gRPC token-based), expanded idempotency from 3 lines to a full subsection (method semantics table, when-to-enforce, implementation pattern, storage decisions, collision rule, gRPC notes), added Schema-First Design + REST vs gRPC + Predictable Response Structure to Best Practices, expanded API Security with Token Types comparison, Rate Limiting, layered Input Validation, error-handling-without-leaking-internals, HTTPS/HSTS
+
+## [2026-04-29] ingest | REST API Design (expanded)
+- Source: [ByteByteGo — A Crash Course on REST APIs](https://blog.bytebytego.com/p/a-crash-course-on-rest-apis) (2024-05-30)
+- Updated: REST API Design (added resource naming conventions, pagination/filtering/sorting, documentation/Swagger, authorization mechanisms RBAC/ABAC/OAuth scopes, scalability section: stateless architecture, horizontal scaling, caching/Cache-Aside, async processing/message queues, monitoring/logging; expanded versioning with query parameter strategy)
+
 ## [2026-04-19] ingest | REST API Design
 - Source: [ByteByteGo — Design Effective and Secure REST APIs](https://blog.bytebytego.com/p/design-effective-and-secure-rest-apis) (Alex Xu, 2023-05-17)
 - New: REST API Design (API smell detection, Richardson Maturity Model, HTTP verbs/CRUD, status codes, internal error codes)

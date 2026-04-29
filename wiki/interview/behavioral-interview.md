@@ -58,28 +58,40 @@ I decided to leave my previous company to look for **new challenges and opportun
 
 ### Story: Modernization của codebase legacy
 
-**Situation**
-
+**Situation**  
 In my previous project, a dental clinic management system, I was working on a long-maintained codebase built with **outdated technologies** like React 16 and Node.js 16. The project had accumulated a lot of **technical debt** over time, including **unused style submodules**, legacy code patterns, and a large number of unnecessary dependencies. This significantly slowed down development and made onboarding and maintenance difficult.
 
-**Task**
+Additionally, the client had already been raising **performance concerns** for a long time. To address this, the PM decided to dedicate a full **3-month sprint** focused entirely on performance improvements, with close collaboration between developers and QA to audit and validate the system.
 
-My responsibility was to improve developer experience and system performance **without breaking existing functionality**, while also preparing the codebase for future scalability.
+---
 
-**Action**
+**Task**  
+I was responsible for **frontend performance**—identifying bottlenecks, prioritizing fixes, and improving the system without breaking existing functionality.
 
-Tôi đề xuất và dẫn dắt effort modernization:
+---
 
-1. **Build tooling**: Migrate frontend từ Create React App sang **Vite**, upgrade Node.js v16 → v20.
-2. **Codebase cleanup**: Dùng tool **Knip** để audit → tìm và xóa hơn **1,000 unused files** và khoảng **50 unnecessary dependencies**. Dọn sạch legacy submodules và refactor outdated patterns.
-3. **Frontend optimization**: Tối ưu data fetching bằng Apollo's **cache-and-network policy**, gom GraphQL queries, và implement **optimistic updates** để cải thiện UX.
+**Action**  
+I proposed and led the modernization effort:
+
+1. **Build tooling**: Migrated the frontend from Create React App to **Vite**, and upgraded Node.js from v16 → v20.
+2. **Codebase cleanup**: Used **Knip** to audit the codebase → removed over **1,000 unused files** and ~50 unnecessary dependencies. Cleaned up legacy submodules and refactored outdated patterns.
+3. **CI/CD optimization**: Improved Dockerfile configuration by leveraging layer caching (copying `package.json` before source code) to avoid reinstalling dependencies on every build → significantly reduced build time.
+4. **Frontend & runtime optimization**:
+    - Optimized data fetching using Apollo’s **cache-and-network policy**, grouped GraphQL queries, and implemented **optimistic updates**.
+    - Added **debounce** to the search input on the order list screen after analyzing logs showed high-frequency usage → reduced unnecessary API calls and server load.
+    - Fixed an incorrect root layout setup that caused multiple **Apollo Client instances** to be created → reduced unnecessary re-renders and improved stability.
+5. **Tech improvement**: Planned migration from **MUI v4 to newer versions (v5/v7)** to address performance issues and move away from legacy CSS-in-JS toward Emotion.
+
+---
 
 **Result**
 
-- Local dev startup: dropped from **1 phút 30 giây → 1.2 giây** (giảm ~98%).
-- Production build: improved by **~5 lần**.
-- Codebase cleaner, easy to maintain → **reducing onboarding time** for new developer.
-- Frontend performance và UX cải thiện rõ rệt nhờ data handling hiệu quả hơn.
+- Local dev startup: dropped from **1m30s → ~1.2s** (~98% improvement).
+- Production build: improved by **~5x**.
+- Reduced CI/CD build time and eliminated redundant dependency installations.
+- Decreased unnecessary API requests and reduced server load.
+- Codebase became cleaner and easier to maintain → **reduced onboarding time** for new developers.
+- Overall frontend performance and UX improved significantly due to more efficient data handling and rendering.
 
 ### Các con số cần nhớ
 
