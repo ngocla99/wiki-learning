@@ -155,14 +155,14 @@ boundGreet('.');                       // "Hi, Ngoc."
 
 **5 binding rules (in priority order):**
 
-| Rule                 | How it's triggered                   | Value of `this`                              |
-| -------------------- | ------------------------------------ | -------------------------------------------- |
-| **new binding**      | `new Fn()`                           | Newly created object                         |
-| **Explicit binding** | `.call()`, `.apply()`, `.bind()`     | First argument passed                        |
-| **Implicit binding** | Method call: `obj.fn()`              | The object left of the dot (`obj`)           |
-| **Default binding**  | Plain function call: `fn()`          | `globalThis` (or `undefined` in strict mode) |
-| **Event handler**    | `el.addEventListener('click', fn)`   | The DOM element (`el`)                       |
-| **Lexical (arrow)**  | Arrow function                       | Inherited from enclosing scope               |
+| Rule                 | How it's triggered                 | Value of `this`                              |
+| -------------------- | ---------------------------------- | -------------------------------------------- |
+| **new binding**      | `new Fn()`                         | Newly created object                         |
+| **Explicit binding** | `.call()`, `.apply()`, `.bind()`   | First argument passed                        |
+| **Implicit binding** | Method call: `obj.fn()`            | The object left of the dot (`obj`)           |
+| **Default binding**  | Plain function call: `fn()`        | `globalThis` (or `undefined` in strict mode) |
+| **Event handler**    | `el.addEventListener('click', fn)` | The DOM element (`el`)                       |
+| **Lexical (arrow)**  | Arrow function                     | Inherited from enclosing scope               |
 
 ```js
 // 1. new binding

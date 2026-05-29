@@ -1,5 +1,15 @@
 # Wiki Log
 
+## [2026-05-29] ingest | Testing: What to Test in React
+- Source: [Kent C. Dodds — How to Know What to Test](https://kentcdodds.com/blog/how-to-know-what-to-test) (Kent C. Dodds, 2019-04-13)
+- New: Testing: What to Test in React (use case coverage vs code coverage, observable behavior over implementation details, React-specific guidance on what to test/not test, prioritization strategy for starting testing in an app)
+- Updated: Testing Patterns (nodejs) — added cross-reference to new React testing article
+
+## [2026-05-05] ingest | Rendering Strategies (depth pass — historical context, ISR, hybrid SSR+CSR, decision framework)
+- Source: [upskills.dev — React Rendering Strategies](https://upskills.dev/tutorials/react-rendering-strategies?sections=1,2,3,4,5,6) (Vu Nguyen, 2026-03-02)
+- Updated: Rendering Strategies — added "Why These Patterns Exist" historical section (server-rendered → jQuery → first SPA wave → React → return to server), new "Incremental Static Regeneration (ISR)" subsection under SSG (stale-while-revalidate, Pages Router + App Router code, trade-offs), new "Hybrid SSR + CSR in Production" section (4-phase architecture table, e-commerce product page example, per-route mixing in modern frameworks), new "Decision Framework" subsection (5-question decision sequence + production-app reality check). Updated SSG column in strategy table to note ISR mitigates the staleness disadvantage. Source attribution updated to dual-source.
+- Note: RSC-specific additions from this source (Server Functions / 'use server' / form action progressive enhancement) deliberately *not* duplicated into rendering-strategies.md — that material is the domain of react-server-components.md, which already covers it.
+
 ## [2026-04-29] ingest | Database Selection Process (new)
 - Source: [ByteByteGo — Key Steps in the Database Selection Process](https://blog.bytebytego.com/p/key-steps-in-the-database-selection) (Alex Xu, 2023-05-03)
 - New: Database Selection Process (five-step workflow: assess requirements → evaluate options → benchmark → long-term implications → final decision; three case studies — e-commerce hybrid PostgreSQL+Elasticsearch, social media DynamoDB with adjacency-list modeling, IoT InfluxDB; key takeaway on polyglot persistence)

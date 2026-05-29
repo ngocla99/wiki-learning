@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4542895abb7363cb",
+        "id": "1c3b7e917bca39cc",
         "type": "tabs",
         "children": [
           {
-            "id": "1e0cd1fd04dfe850",
+            "id": "ecc537126365df26",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "wiki/react/react-re-renders.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "react-re-renders"
             }
           }
         ]
@@ -179,16 +183,35 @@
       "bases:Create new base": false
     }
   },
-  "active": "1e0cd1fd04dfe850",
+  "active": "ecc537126365df26",
   "lastOpenFiles": [
+    "wiki/react/react-server-components.md",
+    "wiki/react/memoization.md",
+    "wiki/react/interaction-performance.md",
+    "wiki/react/web-performance-metrics.md",
+    "wiki/react/rendering-strategies.md",
+    "wiki/interview/react-rendering-interview.md",
+    "wiki/react/state-management.md",
+    "wiki/react/race-conditions.md",
+    "wiki/interview/javascript-interview.md",
+    "wiki/interview/behavioral-interview.md",
+    "wiki/interview/performance-interview.md",
+    "wiki/react/error-handling.md",
+    "wiki/react/interview/react-hooks-interview.md",
+    "wiki/react/debouncing-throttling.md",
+    "wiki/react/component-composition-patterns.md",
+    "wiki/react/closures-in-react.md",
+    "wiki/react/reconciliation-and-diffing.md",
+    "wiki/react/interview/react-fundamentals-interview.md",
+    "wiki/react/interview/react-components-interview.md",
+    "wiki/react/interview/react-architecture-interview.md",
+    "Clippings/React Rendering Strategies.md",
+    "Clippings",
     "wiki/system-design/authentication-methods.md",
     "wiki/system-design/api-design.md",
     "wiki/system-design/rest-api-design.md",
     "wiki/system-design/graphql.md",
     "wiki/system-design/database-types.md",
-    "wiki/system-design/database-selection-process.md",
-    "wiki/system-design/database-selection-factors.md",
-    "wiki/system-design/authentication-sso-oauth-passwordless.md",
     "wiki/system-design/assets/download 18.webp",
     "wiki/system-design/assets/download 17.webp",
     "wiki/system-design/assets/download 16.webp",
@@ -198,7 +221,6 @@
     "wiki/system-design/assets/download 12.webp",
     "wiki/log.md.tmp.12036.1777449543797",
     "wiki/index.md.tmp.12036.1777449534221",
-    "raw/system-design/2023-05-03-key-steps-database-selection-bytebytego.md",
     "raw/system-design/2023-05-03-key-steps-database-selection-bytebytego.md.tmp.12036.1777449486384",
     "wiki/system-design/assets/download 11.webp",
     "wiki/system-design/assets/download 10.webp",
@@ -206,27 +228,9 @@
     "wiki/log.md.tmp.12036.1777448939350",
     "wiki/index.md.tmp.12036.1777448931321",
     "wiki/system-design/database-selection-factors.md.tmp.12036.1777448916385",
-    "raw/system-design/2023-04-26-factors-database-selection-bytebytego.md",
     "raw/system-design/2023-04-26-factors-database-selection-bytebytego.md.tmp.12036.1777448875904",
-    "wiki/index.md",
     "wiki/log.md.tmp.12036.1777448191935",
     "wiki/index.md.tmp.12036.1777448130730",
-    "wiki/system-design/database-types.md.tmp.12036.1777448120541",
-    "raw/system-design/2023-04-19-understanding-database-types-bytebytego.md",
-    "wiki/react/react-re-renders.md",
-    "wiki/react/state-management.md",
-    "wiki/react/rendering-strategies.md",
-    "wiki/react/refs-and-imperative-api.md",
-    "wiki/react/react-server-components.md",
-    "wiki/interview/performance-interview.md",
-    "wiki/react/component-composition-patterns.md",
-    "wiki/react/bundle-size-optimization.md",
-    "wiki/interview/react-rendering-interview.md",
-    "wiki/interview/backend-interview.md",
-    "wiki/interview/javascript-interview.md",
-    "wiki/interview/behavioral-interview.md",
-    "wiki/react/use-layout-effect.md",
-    "wiki/react/race-conditions.md",
     "Untitled.canvas"
   ]
 }

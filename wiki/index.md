@@ -57,8 +57,16 @@ Application-level rendering strategies and server-side patterns.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [Rendering Strategies](react/rendering-strategies.md) | CSR, SSR, SSG, hydration mechanics, streaming, and framework trade-offs | 2026-04-13 |
+| [Rendering Strategies](react/rendering-strategies.md) | Historical evolution, CSR, SSR, SSG, ISR, hydration mechanics, hybrid SSR+CSR, decision framework, framework trade-offs | 2026-05-05 |
 | [React Server Components](react/react-server-components.md) | RSC architecture, serialized element trees, streaming with Suspense, async components, "use client" boundary rules, and performance comparison vs CSR/SSR | 2026-04-13 |
+
+### Testing
+
+Testing philosophy and strategy for React applications.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Testing: What to Test in React](react/testing-what-to-test.md) | Use case coverage vs code coverage, observable behavior over implementation details, prioritization strategy for testing React apps | 2026-05-29 |
 
 ### Interview Questions
 

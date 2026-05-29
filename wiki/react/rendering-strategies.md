@@ -1,11 +1,24 @@
 # Rendering Strategies
 
-> Sources: Nadia Makarevich, 2025
+> Sources: Nadia Makarevich, 2025; Vu Nguyen (upskills.dev), 2026
 > Raw: [Web Performance Fundamentals](../../raw/react/web-performance-fundamentals-nadia-makarevich.md)
+> Raw: [React Rendering Strategies — upskills.dev](../../raw/react/2026-03-02-react-rendering-strategies-upskills.md)
 
 ## Overview
 
 Modern React applications can be rendered using several strategies: Client-Side Rendering (CSR), Server-Side Rendering (SSR), Static Site Generation (SSG), and hybrid approaches. Each has distinct trade-offs for performance, SEO, interactivity, and operational complexity. The choice depends on the application's priorities — and understanding the mechanics of each strategy is the only way to make an informed decision rather than following hype.
+
+## Why These Patterns Exist
+
+Each rendering pattern emerged because the previous approach hit a real production constraint:
+
+- **Pre-2010 server-rendered (.NET MVC, Rails, PHP)**: every interaction triggered a full round-trip and full page reload. HTML generation was tightly coupled to business logic. Interactivity was limited.
+- **Late 2000s jQuery era**: kept the server in charge of HTML, sprinkled in `$.ajax()` and DOM manipulation. The pattern broke down when teams tried to "build applications with a tool designed for enhancements."
+- **2010–2013 first SPA wave (Backbone, Knockout, AngularJS, Ember)**: introduced declarative bindings and client-side routing. Two-way binding made small demos easy and large apps "nightmarish to debug at scale."
+- **2013 React**: state changes → React re-renders → only the changed parts of the DOM update. Predictable, composable, won the market.
+- **Post-2016 return to the server**: SPA trade-offs surfaced — SEO challenges, slow initial loads, loading spinners, bundle bloat, waterfall fetches. The community brought server rendering back, this time as a layer on top of React rather than a replacement.
+
+The takeaway: there is no "best" pattern in the abstract. Each one is a response to specific problems the previous generation could not solve, and choosing well means knowing which of those problems you actually have.
 
 ## Client-Side Rendering (CSR)
 
@@ -227,6 +240,29 @@ npm run build:ssg
 
 Frameworks supporting SSG: Next.js (static export), Gatsby, Docusaurus, Astro.
 
+### Incremental Static Regeneration (ISR)
+
+The "data goes stale until the next build" problem has a partial fix: rebuild individual pages on a timer, in the background, while continuing to serve the cached version. This is the **stale-while-revalidate** pattern. When a cached page is older than its revalidation window, the next visitor still gets the stale page instantly; the framework regenerates a fresh version in the background; the visitor *after* that gets the fresh one.
+
+Next.js Pages Router:
+
+```javascript
+export async function getStaticProps() {
+  return {
+    props: { data },
+    revalidate: 3600,  // re-generate at most once per hour
+  };
+}
+```
+
+Next.js App Router (per-fetch revalidation):
+
+```javascript
+const data = await fetch(url, { next: { revalidate: 3600 } });
+```
+
+ISR keeps SSG's performance profile — CDN-served files, zero per-request compute — while letting content stay reasonably fresh. The trade-offs: still no per-user personalization (every visitor gets the same cached page), and revalidation happens lazily on traffic, so a low-traffic page can stay stale longer than its window suggests. ISR is a sweet spot for content that changes occasionally but doesn't need to be live: catalogs, marketing pages, blog posts, documentation sites that pull from a CMS.
+
 ## No-JavaScript Environments
 
 Two critical consumers access your HTML without JavaScript:
@@ -255,17 +291,44 @@ app.get('/*', async (c) => {
 
 This solves social media previews without the full complexity of SSR.
 
+## Hybrid SSR + CSR in Production
+
+Most production apps don't pick one strategy and commit to it across every route. The most common real-world pattern is **SSR for the critical above-the-fold content, CSR for everything else** — split along the seam of "what does the user need to see immediately" vs. "what can load after they're already engaged."
+
+| Phase          | Handler        | Content                                                                            | Timing                                      |
+| -------------- | -------------- | ---------------------------------------------------------------------------------- | ------------------------------------------- |
+| Initial load   | Server         | Critical content (product name, images, base price, headline copy)                 | Pre-fetched and embedded before HTML ships  |
+| FCP            | HTML           | Pre-rendered content visible                                                       | Immediate                                   |
+| Hydration      | Client React   | Event listeners attached, components become interactive                            | After JS bundle arrives                     |
+| Secondary data | Client `fetch` | Personalized data (inventory, discounted price, recently-viewed, live counters)    | After hydration, while user is reading      |
+
+**Concrete example: an e-commerce product page.** The server pre-fetches and embeds the product name, images, description, and base price — the content that determines whether the page is useful at all. After hydration, the client fetches the inventory count at the user's nearest warehouse, their loyalty-tier discount, the "people viewing this right now" counter, and personalized recommendations.
+
+This works because FCP is determined by when the browser receives content-filled HTML, and the user's attention shifts to that content the moment it appears. Secondary client fetches happen against a backdrop of "user is already reading," so their latency is hidden by the user's own reading time rather than displayed as a loading spinner. Modern frameworks (Next.js, Remix, TanStack Start) treat rendering as a per-route decision, so different pages in the same app can use entirely different strategies — the marketing landing page can be SSG, the product catalog SSR, the authenticated dashboard pure CSR.
+
 ## Choosing a Strategy
 
-| Factor             | CSR/SPA   | SSR                    | SSG                    |
-| ------------------ | --------- | ---------------------- | ---------------------- |
-| Initial load speed | Slowest   | Fast (usually)         | Fastest                |
-| SEO                | Poor      | Good                   | Good                   |
-| Dynamic content    | Excellent | Good                   | Build-time only        |
-| Interaction speed  | Excellent | Good (after hydration) | Good (after hydration) |
-| Hosting cost       | Lowest    | Higher                 | Lowest                 |
-| Complexity         | Lowest    | Highest                | Medium                 |
-| TTI gap            | None      | Can be significant     | Can be significant     |
+| Factor             | CSR/SPA   | SSR                    | SSG                             |
+| ------------------ | --------- | ---------------------- | ------------------------------- |
+| Initial load speed | Slowest   | Fast (usually)         | Fastest                         |
+| SEO                | Poor      | Good                   | Good                            |
+| Dynamic content    | Excellent | Good                   | Build-time only (ISR mitigates) |
+| Interaction speed  | Excellent | Good (after hydration) | Good (after hydration)          |
+| Hosting cost       | Lowest    | Higher                 | Lowest                          |
+| Complexity         | Lowest    | Highest                | Medium                          |
+| TTI gap            | None      | Can be significant     | Can be significant              |
+
+### Decision Framework
+
+A practical sequence of questions to settle on a strategy:
+
+1. **Does the content change per user?** If yes, you need SSR or CSR — SSG cannot personalize. If no, SSG is on the table.
+2. **Does SEO matter?** If yes, the server must produce a content-filled HTML response on the first request — that means SSR, SSG, or RSC. If no (authenticated-only apps, internal tools), SPA/CSR is fine.
+3. **How dynamic is the content?** Real-time → SPA or SSR with client updates. Occasional updates → SSG with ISR. Truly static → SSG.
+4. **Is JavaScript bundle size a critical constraint?** If yes, RSC is the strongest answer because server-only code never reaches the browser. If no, any of the others.
+5. **What infrastructure can you run?** Static-only hosting → SSG or SPA. Server runtime available → SSR or RSC.
+
+A useful sanity check on the answer: many production apps at large organizations (banks, internal SaaS, design tools) ship as plain SPAs not because the team didn't know about SSR, but because their actual users are authenticated, SEO doesn't apply, and interaction performance dominates initial load. SSR/SSG/RSC excel for public, search-dependent, content-heavy pages; SPAs dominate authenticated, interaction-heavy tools.
 
 The right choice depends on your users, your content, and what you measure. There are no silver bullets.
 
