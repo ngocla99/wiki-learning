@@ -66,7 +66,8 @@ Testing philosophy and strategy for React applications.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [Testing: What to Test in React](react/testing-what-to-test.md) | Use case coverage vs code coverage, observable behavior over implementation details, prioritization strategy for testing React apps | 2026-05-29 |
+| [Testing: What to Test in React](react/test/testing-what-to-test.md) | Use case coverage vs code coverage, observable behavior over implementation details, prioritization strategy for testing React apps | 2026-05-29 |
+| [The Testing Trophy](react/test/testing-trophy.md) | Testing Trophy model, four test type classifications (static/unit/integration/E2E), trade-offs (cost/speed/confidence), confidence coefficient, coverage diminishing returns, stop-mocking guidance, trophy vs pyramid | 2026-05-29 |
 
 ### Interview Questions
 

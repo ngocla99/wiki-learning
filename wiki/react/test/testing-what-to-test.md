@@ -1,7 +1,7 @@
 # Testing: What to Test in React
 
 > Sources: Kent C. Dodds, 2019-04-13
-> Raw: [How to Know What to Test](../../raw/react/2019-04-13-how-to-know-what-to-test.md)
+> Raw: [How to Know What to Test](../../../raw/react/2019-04-13-how-to-know-what-to-test.md)
 
 ## Overview
 
@@ -103,6 +103,7 @@ The goal is confidence, not coverage numbers. Add tests incrementally, focused o
 
 ## See Also
 
-- [React Re-renders](react-re-renders.md) — understanding what triggers re-renders helps identify what state/prop changes to test
-- [Error Handling in React](error-handling.md) — error boundaries are key observable behaviors to test
+- [The Testing Trophy](testing-trophy.md) — the Testing Trophy model, four test type classifications, trade-offs (cost/speed/confidence), and the confidence coefficient
+- [React Re-renders](../react-re-renders.md) — understanding what triggers re-renders helps identify what state/prop changes to test
+- [Error Handling in React](../error-handling.md) — error boundaries are key observable behaviors to test
 

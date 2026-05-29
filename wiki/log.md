@@ -1,5 +1,16 @@
 # Wiki Log
 
+## [2026-05-29] ingest | The Testing Trophy (depth pass — coverage diminishing returns, stop-mocking guidance)
+- Source: [Kent C. Dodds — Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests) (Kent C. Dodds, 2019-07-13)
+- Updated: The Testing Trophy — added "Coverage: Not Too Many" section (~70% diminishing returns heuristic, application vs OSS library distinction), added "Writing More Integration Tests" section (stop-mocking advice, shallow rendering caveat), enriched Trophy vs Pyramid with Martin Fowler's original assumption context
+
+## [2026-05-29] ingest | The Testing Trophy
+- Source: [Kent C. Dodds — The Testing Trophy and Testing Classifications](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) (Kent C. Dodds, 2021-06-03)
+- Source: [Kent C. Dodds — Static vs Unit vs Integration vs E2E Tests](https://kentcdodds.com/blog/static-vs-unit-vs-integration-vs-e2e-tests) (Kent C. Dodds, 2021-06-03)
+- New: The Testing Trophy (Testing Trophy model, four test levels with code examples, trade-offs, confidence coefficient, trophy vs pyramid comparison)
+- Updated: Testing: What to Test in React — added cross-reference to Testing Trophy
+- Updated: Testing Patterns (nodejs) — added cross-reference to Testing Trophy
+
 ## [2026-05-29] ingest | Testing: What to Test in React
 - Source: [Kent C. Dodds — How to Know What to Test](https://kentcdodds.com/blog/how-to-know-what-to-test) (Kent C. Dodds, 2019-04-13)
 - New: Testing: What to Test in React (use case coverage vs code coverage, observable behavior over implementation details, React-specific guidance on what to test/not test, prioritization strategy for starting testing in an app)

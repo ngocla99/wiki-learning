@@ -822,4 +822,5 @@ test('A user can sign up and book an event', async ({ page }) => {
 - [Creational Design Patterns](creational-design-patterns.md) -- Dependency Injection pattern
 - [Behavioral Design Patterns](behavioral-design-patterns.md) -- Observer/EventEmitter patterns used in test examples
 - [Advanced Recipes](advanced-recipes.md) -- Delayed initialization, request batching, cancellation
-- [Testing: What to Test in React](../react/testing-what-to-test.md) -- Use case coverage, testing philosophy, and where to start testing an app (Kent C. Dodds)
+- [Testing: What to Test in React](../react/test/testing-what-to-test.md) -- Use case coverage, testing philosophy, and where to start testing an app (Kent C. Dodds)
+- [The Testing Trophy](../react/test/testing-trophy.md) -- Kent C. Dodds' Testing Trophy model, four test levels with code examples, trade-offs, and comparison with the Testing Pyramid
